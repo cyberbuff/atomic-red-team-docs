@@ -29,10 +29,11 @@ const config: DocsThemeConfig = {
     const {asPath} = useRouter()
     const basePath = 'https://atomics.vercel.app'
     const url = basePath + asPath
+    const ogImage = basePath + '/og.png'
     return <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta property="og:url" content={url}/>
-      <meta property="og:image" content={`${basePath}/og.png`}/>
+      <meta property="og:image" content={ogImage}/>
       <meta property="og:image:alt" content="AtomicRedTeam"/>
       <meta property="og:title" content={frontMatter.title || "Atomic Red Team docs"}/>
       <meta property="og:description" content={frontMatter.description || "New wiki site for Atomic Red Team"}/>
