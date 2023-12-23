@@ -5,7 +5,7 @@ import {Analytics} from '@vercel/analytics/react';
 
 const config: DocsThemeConfig = {
   logo: <>
-    <img src={"./logo.png"} alt={"logo"} width={30} height={30} style={{
+    <img src={"https://atomics.vercel.app/logo.png"} alt={"logo"} width={30} height={30} style={{
       marginRight: 4,
     }}/>
 
