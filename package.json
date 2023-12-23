@@ -1,7 +1,7 @@
 {
-  "name": "nextra-docs-template",
+  "name": "atomic-red-team-docs",
   "version": "0.0.1",
-  "description": "Nextra docs template",
+  "description": "Atomic Red Team docs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuding/nextra-docs-template.git"
+    "url": "git+https://github.com/cyberbuff/atomic-red-team-docs.git"
   },
-  "author": "Shu Ding <g@shud.in>",
+  "author": "cyberbuff <code@0x6c.dev>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
+    "url": "https://github.com/cyberbuff/atomic-red-team-docs/issues"
   },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
+  "homepage": "https://github.com/cyberbuff/atomic-red-team-docs",
   "dependencies": {
     "next": "^13.0.6",
     "nextra": "latest",

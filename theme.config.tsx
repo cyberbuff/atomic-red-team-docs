@@ -1,18 +1,23 @@
 import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import {DocsThemeConfig} from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <>
+    <img src={"./logo.png"} alt={"logo"} width={30} height={30} style={{
+      marginRight: 4,
+    }}/>
+
+    <span className="mx-2 font-extrabold hidden md:inline select-none">
+         Atomic Red Team
+        </span>
+  </>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/redcanaryco/atomic-red-team',
   },
-  chat: {
-    link: 'https://discord.com',
-  },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/cyberbuff/atomic-red-team-docs/tree/main/',
   footer: {
-    text: 'Nextra Docs Template',
-  },
+    component: null
+  }
 }
 
 export default config
