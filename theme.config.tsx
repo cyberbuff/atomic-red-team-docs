@@ -1,6 +1,7 @@
 import React from 'react'
 import {DocsThemeConfig, useConfig} from 'nextra-theme-docs'
 import {useRouter} from 'next/router'
+import {Analytics} from '@vercel/analytics/react';
 
 const config: DocsThemeConfig = {
   logo: <>
@@ -17,7 +18,7 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/cyberbuff/atomic-red-team-docs/tree/main/',
   footer: {
-    component: null
+    component: <Analytics/>
   },
   useNextSeoProps() {
     return {
