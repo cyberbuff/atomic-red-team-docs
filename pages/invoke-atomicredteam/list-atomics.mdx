@@ -1,3 +1,5 @@
+import {Callout} from 'nextra/components'
+
 Now that the execution framework is [installed](/invoke-atomicredteam/getting-started) and the module is [imported](/invoke-atomicredteam/import) you are ready to start using it. A good starting point is to list the Technique numbers and test names available for execution.
 
 ## Show Details Brief
@@ -7,7 +9,13 @@ Use the `-ShowDetailsBrief` switch to list the tests available for a given techn
 ```powershell copy
 # List atomic tests that can be run from the current platform (Windows,Linux,macOS)
 Invoke-AtomicTest T1003 -ShowDetailsBrief
+```
 
+<Callout emoji="ℹ️">
+  You can pass <b>-anyOS</b> to show details of the atomic regardless of which platform it can be executed from.
+</Callout>
+
+```powershell copy
 # List all atomic tests regardless of which platform it can be executed from
 Invoke-AtomicTest T1003 -ShowDetailsBrief -anyOS
 ```
@@ -17,9 +25,6 @@ If you would like to show details for all techniques, you can use "All" as the t
 ```powershell copy
 # List atomic tests that can be run from the current platform (Windows,Linux,macOS)
 Invoke-AtomicTest All -ShowDetailsBrief
-
-# List all atomic tests regardless of which platform it can be executed from
-Invoke-AtomicTest -ShowDetailsBrief -anyOS
 ```
 
 Showing the brief details is an easy way to identify the atomic test number associated with each test, which can then be used to specify individual tests to execute.
@@ -31,7 +36,4 @@ Use the `-ShowDetails` switch to show test details, including attack commands, i
 ```powershell copy
 # List atomic tests that can be run from the current platform (Windows,Linux,macOS)
 Invoke-AtomicTest T1003 -ShowDetails
-
-# List all atomic tests regardless of which platform it can be executed from
-Invoke-AtomicTest T1003 -ShowDetails -anyOS
 ```

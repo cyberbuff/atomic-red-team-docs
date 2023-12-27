@@ -1,5 +1,17 @@
 {
   "getting-started": "Getting Started",
-  "import": "Import the Module",
-  "list": "List Atomic tests"
+  "import-module": "Import the Module",
+  "list-atomics": "List Atomic Tests",
+  "check-prereqs": "Check or Get Prerequisites for Atomic Tests",
+  "execute-tests-locally": "Execute Atomic Tests (Local)",
+  "execute-tests-remotely": "Execute Atomic Tests (Remote)",
+  "custom-input-arguments": "Specify Custom Input Arguments",
+  "cleanup": "Cleanup after Execution",
+  "execution-logging": "Execution Logging",
+  "adversary-emulation": "Adversary Emulation",
+  "continuous-atomic-testing": "Continuous Atomic Testing",
+  "execution-hooks": "Execution Hooks",
+  "helper-functions": "Helper Functions",
+  "atomic-gui": "The Atomic GUI",
+  "uninstall-module": "Uninstall the Module"
 }

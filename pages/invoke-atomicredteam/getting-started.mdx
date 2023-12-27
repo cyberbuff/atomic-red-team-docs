@@ -1,26 +1,45 @@
+import {Callout, Tab, Tabs} from "nextra/components";
+
 ## Installation [#installation]
 
-This execution framework (Invoke-AtomicRedTeam) works cross-platform on Windows, Linux and MacOS. However, to use it on Linux and Mac you must install PowerShell Core. See [Installing PowerShell Core on Linux](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) and [Installing PowerShell Core on MacOS](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6) for details.
+This execution framework (Invoke-AtomicRedTeam) works cross-platform on Windows, Linux and MacOS.
+<Callout>
+  To use it on Linux and Mac you must install PowerShell Core. See [Installing PowerShell Core on
+  Linux](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6)
+  and [Installing PowerShell Core on
+  MacOS](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6)
+  for details.
+</Callout>
 
-### Install from PowerShell Gallery [#powershell-gallery]
+<Tabs items={["powershell-gallery", "from-source"]}>
+  <Tab>
 
-The Invoke-AtomicRedTeam Execution is available for install from the PowerShell Gallery and can be installed with one simple command executed from a PowerShell prompt:
+    The Invoke-AtomicRedTeam Execution is available for install from the PowerShell Gallery and can be installed with
+    one simple command executed from a PowerShell prompt:
 
-```powershell copy
-Install-Module -Name invoke-atomicredteam,powershell-yaml -Scope CurrentUser
-```
-Note: If you get an error relating to a missing PSRepository, use the following command to register the needed repository.
+    ```powershell copy
+    Install-Module -Name invoke-atomicredteam,powershell-yaml -Scope CurrentUser
+    ```
 
-```powershell copy
-Register-PSRepository -Default
-```
-### Install from source [#install-from-source]
+    <Callout>
+      If you get an error relating to a missing PSRepository, use the following command to register the needed
+      repository.
+    </Callout>
 
-To install the execution framework without downloading it from the PowerShell Gallery as shown above, you can continue with the following instructions:
-```powershell copy
-IEX (IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicredteam.ps1' -UseBasicParsing);
-Install-AtomicRedTeam
-```
+    ```powershell copy
+    Register-PSRepository -Default
+    ```
+  </Tab>
+  <Tab>
 
-## Frequently Asked Questions [#faqs]
+    To install the execution framework without downloading it from the PowerShell Gallery as shown above, you can
+    continue with the following instructions:
+    ```powershell copy
+    IEX (IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicredteam.ps1'
+    -UseBasicParsing);
+    Install-AtomicRedTeam
+    ```
+
+  </Tab>
+</Tabs>
 
