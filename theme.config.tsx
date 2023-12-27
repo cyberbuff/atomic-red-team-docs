@@ -20,7 +20,7 @@ const config: DocsThemeConfig = {
   footer: {
     component: <>
       <Analytics/>
-      <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+      <script defer src={'https://static.cloudflareinsights.com/beacon.min.js'}
               data-cf-beacon='{"token": "b59027d62dea4505885f06f6338003d2"}'></script>
     </>
   },
