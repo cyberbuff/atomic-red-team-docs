@@ -12,5 +12,6 @@ module.exports = withNextra({
   output: "export",
   images: {
     unoptimized: true,
-  }
+  },
+  experimental: {optimisticClientCache: false,}
 })

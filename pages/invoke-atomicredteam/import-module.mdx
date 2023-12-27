@@ -9,17 +9,17 @@ In order make the `Invoke-AtomicTest` function available for use in your current
 
 <Tabs items={['Windows', 'Linux', 'MacOS']}>
 <Tab>
-```powershell copy
+```powershell
 Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
 ```
   </Tab>
   <Tab>
-```powershell copy
+```powershell
 Import-Module "$HOME/AtomicRedTeam/invoke-atomicredteam/Invoke-AtomicRedTeam.psd1" -Force
 ```
   </Tab>
   <Tab>
-```powershell copy
+```powershell
 Import-Module "$HOME/AtomicRedTeam/invoke-atomicredteam/Invoke-AtomicRedTeam.psd1" -Force
 ```
   </Tab>
@@ -38,17 +38,17 @@ A simple way to access your profile script is to execute the following from a Po
 
 <Tabs items={['Windows', 'Linux', 'MacOS']}>
   <Tab>
-```powershell copy
+```powershell
 notepad $profile
 ```
   </Tab>
   <Tab>
-```powershell copy
+```powershell
 nano $profile
 ```
   </Tab>
   <Tab>
-```powershell copy
+```powershell
 open -a TextEdit $profile
 ```
   </Tab>
@@ -58,19 +58,19 @@ Here is an example profile to import the module at startup and to set the defaul
 
 <Tabs items={['Windows', 'Linux', 'MacOS']}>
   <Tab>
-```powershell copy
+```powershell
 Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
 $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="C:\AtomicRedTeam\atomics"}
 ```
   </Tab>
   <Tab>
-```powershell copy
+```powershell
 Import-Module "$HOME/AtomicRedTeam/invoke-atomicredteam/Invoke-AtomicRedTeam.psd1" -Force
 $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="$HOME/AtomicRedTeam/atomics"}
 ```
   </Tab>
   <Tab>
-```powershell copy
+```powershell
 Import-Module "$HOME/AtomicRedTeam/invoke-atomicredteam/Invoke-AtomicRedTeam.psd1" -Force
 $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="$HOME/AtomicRedTeam/atomics"}
 ```
@@ -81,6 +81,6 @@ $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="$HOME/Ato
 
 Once you have edited and saved the profile in notepad, you can either restart PowerShell to have the profile take effect or execute the following command.
 
-```powershell copy
+```powershell
 . $profile
 ```
