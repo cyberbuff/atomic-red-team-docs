@@ -55,7 +55,7 @@ Before executing the test, you must first establish a PS session ($sess) to the 
 
 After you have established the PS session ($sess) you can proceed with test execution as follows.
 
-```powershell copy
+```powershell
 # Install any required prerequisites on the remote machine before test execution
 Invoke-AtomicTest T1218.010 -Session $sess -GetPrereqs
 
@@ -71,7 +71,7 @@ The same options that are available during Local execution are available for Rem
 
 To execute an atomic test on a remote machine, you must first [meet the prerequisites](https://github.com/redcanaryco/invoke-atomicredteam/wiki/Execute-Atomic-Tests-(Remote)#prerequisites) and establish a PowerShell Session.
 
-```powershell copy
+```powershell
 # example session establishment from the local computer to a remote computer named 'testcomputer'
 $sess = New-PSSession -ComputerName testcomputer -Credential domain\username
 ```
@@ -84,7 +84,7 @@ Now that you have a persistent session established (`$sess`), you can use it wit
 
 To execute an atomic test on a remote machine, you must first you must first [meet the prerequisites](https://github.com/redcanaryco/invoke-atomicredteam/wiki/Execute-Atomic-Tests-(Remote)#prerequisites) and establish a PowerShell Session.
 
-```powershell copy
+```powershell
 # Must be using PowerShell version 6 or higher (Core) on the Local Windows Machine
 # example session establishment from the local computer to a remote computer named 'testcomputer'
 $sess = New-PSSession -HostName testcomputer -Username username
@@ -98,7 +98,7 @@ Now that you have a persistent session established (`$sess`), you can use it wit
 
 To execute an atomic test on a remote machine, you must first ou must first [meet the prerequisites](https://github.com/redcanaryco/invoke-atomicredteam/wiki/Execute-Atomic-Tests-(Remote)#prerequisites) and establish a PowerShell Session.
 
-```powershell copy
+```powershell
 # example session establishment from the local computer to a remote computer named 'testcomputer'
 $sess = New-PSSession -HostName testcomputer -Username username
 ```

@@ -5,7 +5,7 @@ This script works for Windows, Linux and macOS. You need to have PowerShell Core
 # Setup and Configuration
 ## Install `Atomic Red Team` and `Invoke-AtomicRedTeam`
 
-```powershell copy
+```powershell
 IEX (IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicredteam.ps1' -UseBasicParsing);
 Install-AtomicRedTeam -getAtomics -Force -noPayloads
 ```
@@ -62,7 +62,7 @@ Table of default values:
 
 Example **privateConfig.ps1**
 
-```powershell copy
+```powershell
 $artConfig | Add-Member -Force -NotePropertyMembers @{
   PathToPrivateAtomics = "C:\MyPrivateAtomics\atomics"
   scheduleTimeSpan = New-TimeSpan -Days 1
@@ -75,7 +75,7 @@ $artConfig | Add-Member -Force -NotePropertyMembers @{
 
 ## Run Invoke-SetupAtomicRunner
 
-```powershell copy
+```powershell
 # Run Invoke-SetupAtomicRunner as the runner user (from admin prompt)
 Invoke-SetupAtomicRunner
 ```
@@ -123,7 +123,7 @@ Additional logs are added to the **AtomicRunner-logs** folder in the home direct
 
 As new atomics are added, removed, or edited in the Atomic Red team library, you may want to refresh your schedule. Refreshing the schedule will update the Atomic test name, technique and supported platforms for each test on the schedule, remove entries for atomic tests that have been removed, and add any new tests that aren't already on your schedule. Any new tests added to the schedule will be disabled by default, change the **enabled** value to True if you want it to be active.
 
-```powershell copy
+```powershell
 # This will refresh the CSV schedule found in the user's home directory at AtomicRunner\AtomicRunnerSchedule.csv
 Invoke-RefreshExistingSchedule
 ```

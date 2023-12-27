@@ -17,7 +17,7 @@ This execution framework (Invoke-AtomicRedTeam) works cross-platform on Windows,
     The Invoke-AtomicRedTeam Execution is available for install from the PowerShell Gallery and can be installed with
     one simple command executed from a PowerShell prompt:
 
-    ```powershell copy
+    ```powershell
     Install-Module -Name invoke-atomicredteam,powershell-yaml -Scope CurrentUser
     ```
 
@@ -26,7 +26,7 @@ This execution framework (Invoke-AtomicRedTeam) works cross-platform on Windows,
       repository.
     </Callout>
 
-    ```powershell copy
+    ```powershell
     Register-PSRepository -Default
     ```
   </Tab>
@@ -34,7 +34,7 @@ This execution framework (Invoke-AtomicRedTeam) works cross-platform on Windows,
 
     To install the execution framework without downloading it from the PowerShell Gallery as shown above, you can
     continue with the following instructions:
-    ```powershell copy
+    ```powershell
     IEX (IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicredteam.ps1'
     -UseBasicParsing);
     Install-AtomicRedTeam

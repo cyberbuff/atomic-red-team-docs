@@ -8,13 +8,13 @@ import { Bleed } from 'nextra-theme-docs'
 
     #### Specify an Alternate Path\Filename for Writing the Execution Log
 
-    ```powershell copy
+    ```powershell
     Invoke-AtomicTest T1218.010 -ExecutionLogPath 'C:\Temp\mylog.csv'
     ```
 
     The execution log records test name and number, execution time, user, and hostname. It does not include the output seen on the screen when you run the test. The following PowerShell command provides a convenient view of the execution log.
 
-    ```powershell copy
+    ```powershell
     Import-Csv $env:TEMP\Invoke-AtomicTest-ExecutionLog.csv | Out-GridView
     ```
 
@@ -35,7 +35,7 @@ import { Bleed } from 'nextra-theme-docs'
 
     You can specify the use of the Attire logger when executing atomic tests as follows.
 
-    ```powershell copy
+    ```powershell
     Invoke-AtomicTest T1016 -LoggingModule "Attire-ExecutionLogger" -ExecutionLogPath T1016-Windows.json
     ```
 
@@ -45,13 +45,13 @@ import { Bleed } from 'nextra-theme-docs'
 
     If you'd like to keep all your logs without having to specify a new name every time, you use the **timestamp** place holder in the name which will be replaced by the actual execution timestamp at run time. The following command would write a new log every time using the current time stamp as the name of the file.
 
-    ```powershell copy
+    ```powershell
     Invoke-AtomicTest T1016 -LoggingModule "Attire-ExecutionLogger" -ExecutionLogPath "timestamp.json")
     ```
 
     Lastly, if you don't want to specify the `LoggingModule` manually every time, you can add the following line to your PowerShell profile.
 
-    ```powershell copy
+    ```powershell
     $PSDefaultParameterValues = @{"Invoke-AtomicTest:LoggingModule"="Attire-ExecutionLogger"}
     ```
 
@@ -66,7 +66,7 @@ import { Bleed } from 'nextra-theme-docs'
 
     Instead of using the default logging mechanism, you can log execution details directly to a Syslog server. Use the **privateConfig.ps1** file described [here](https://github.com/redcanaryco/invoke-atomicredteam/wiki/Continuous-Atomic-Testing) to specify your Syslog server and port. You can set the **LoggingModule** to **Syslog-ExecutionLogger** or just leave it blank.
 
-    ```powershell copy
+    ```powershell
     Invoke-AtomicTest T1016 -LoggingModule "Syslog-ExecutionLogger"
     ```
 
@@ -91,7 +91,7 @@ import { Bleed } from 'nextra-theme-docs'
 
     You can log execution details directly to the Windows event log as shown below. You will find the execution details in the `Atomic Red Team` log under the `Application and Services Logs` folder in the Windows event viewer.
 
-    ```powershell copy
+    ```powershell
     Invoke-AtomicTest T1016 -LoggingModule "WinEvent-ExecutionLogger"
     ```
 
@@ -104,7 +104,7 @@ import { Bleed } from 'nextra-theme-docs'
 
 The Attire Logger is the only logging mechanism that produces a log containing the full command input and output details. If you want to capture the command output while using one of the other loggers you can use a command like the following.
 
-```powershell copy
+```powershell
 Invoke-AtomicTest T1027 -TestNumbers 2 *>&1 | Tee-Object atomic-out.txt -Append
 ```
 
@@ -112,6 +112,6 @@ The command above will log all three output streams, everything you see on the s
 
 If you would like to write the errors out to a separate file so they are easier to spot you can use the following command.
 
-```powershell copy
+```powershell
 Invoke-AtomicTest T1027  -TestNumbers 2 2>>atomic-error.txt | Tee-Object atomic-out.txt -Append
 ```
