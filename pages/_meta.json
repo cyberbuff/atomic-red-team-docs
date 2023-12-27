@@ -1,6 +1,11 @@
 {
   "index": "Introduction",
   "invoke-atomicredteam": "Invoke-AtomicRedTeam",
+  "slack-link": {
+    "title": "Slack ↗",
+    "href": "https://slack.atomicredteam.io/",
+    "newWindow": true
+  },
   "about": {
     "title": "About",
     "type": "page"
