@@ -1,0 +1,74 @@
+Atomic Red Team™ is a library of simple tests that every security team can
+execute to test their controls. Tests are focused, have few dependencies, and
+are defined in a structured format that can be used by automation frameworks.
+
+![](https://github.com/redcanaryco/atomic-red-team/blob/master/static/atr-demo.gif)
+
+You can see a variety of atomic tests in action in
+the [Atomic Spotlight series](https://www.youtube.com/playlist?list=PL-4fuTjKox5en_SOd0teFlsk9co4StXnW) on YouTube.
+
+## Prepare your environment
+
+Before you start testing, you'll need the following:
+
+- **Permission to test.** Always ask your environment owner for permission
+  before executing an atomic test.
+- **A test machine.** Set up a machine that mimics the build of your
+  environment. Make sure your security solution is active.
+
+## Choose a test
+
+We store all of our atomic test files in the `atomics` directory of the Atomic
+Red Team™ repository. To keep things organized, we divide tests into directories
+named after the MITRE ATT&CK® technique they represent. For example, we keep
+[Process Injection](https://attack.mitre.org/techniques/T1055) tests in
+`atomic-red-team/atomics/T1055/`.
+
+Each technique directory contains the following:
+
+- A YAML test file
+- A human-readable Markdown test file
+- An optional `src` directory for source file dependencies
+- An optional `bin` directory for binary dependencies
+
+Browse the `atomics` directory for an appropriate test. You can also select
+a test from one of these lists:
+
+- [All atomic tests](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/Indexes/Indexes-Markdown/index.md)
+- [Tests for Linux](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/Indexes/Indexes-Markdown/linux-index.md)
+- [Tests for macOS](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/Indexes/Indexes-Markdown/macos-index.md)
+- [Tests for Windows](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/Indexes/Indexes-Markdown/windows-index.md)
+
+## Run your test
+
+Open the Markdown test definition file and navigate to your test of choice. You can either run the test manually (copy
+and paste commands) or automated using an Execution Framework.
+This [Getting Started with Atomic Red Team](https://youtu.be/eHZEyEf_icE?t=1840) webcast recording will get you up and
+running with the most popular execution framework
+called [Invoke-AtomicRedTeam](https://github.com/redcanaryco/invoke-atomicredteam/wiki).
+
+### Install dependencies
+
+Some tests have a "Dependencies" subheading. These tests require additional
+files to run. To install dependencies, execute the commands in the "Get Prereq
+Commands" subheading.
+
+### Run the test
+
+To run your test, execute the commands in the "Attack Commands" subheading. Note
+what information, if any, is collected by your security solution.
+
+### Clean your environment
+
+Some tests make changes to your environment. To revert these changes,
+run the commands in the "Cleanup Commands" subheading.
+
+💡 **Tip:** Be sure to replace any `#{<input>}` arguments with the inputs
+specified by the "Inputs" heading of the Markdown test file.
+
+## Next steps
+
+- Use the data collected by your security solution to evaluate and improve your
+  detection coverage.
+- Automatically run atomic tests using an execution framework like
+  [Invoke-Atomic](https://github.com/redcanaryco/invoke-atomicredteam).

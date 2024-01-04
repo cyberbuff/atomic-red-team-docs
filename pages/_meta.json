@@ -1,17 +1,9 @@
 {
-  "index": "Introduction",
-  "invoke-atomicredteam": "Invoke-AtomicRedTeam",
-  "slack-link": {
-    "title": "Slack ↗",
-    "href": "https://slack.atomicredteam.io/",
-    "newWindow": true
-  },
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
+  "index":  "Home",
+  "invoke-atomicredteam":  "Invoke-Atomic",
+  "atomic-red-team": "Atomic Red Team",
   "contact": {
-    "title": "Contact ↗",
+    "title": "Slack ↗",
     "type": "page",
     "href": "https://slack.atomicredteam.io/",
     "newWindow": true
