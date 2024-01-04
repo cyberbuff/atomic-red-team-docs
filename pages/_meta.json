@@ -1,17 +1,7 @@
 {
-  "index": {
-    "title": "Home",
-    "type": "page",
-    "display": "hidden"
-  },
-  "invoke-atomicredteam": {
-    "title": "Invoke-Atomic",
-    "type": "page"
-  },
-  "atomic-red-team": {
-    "title": "Atomic Red Team",
-    "type": "page"
-  },
+  "index":  "Home",
+  "invoke-atomicredteam":  "Invoke-Atomic",
+  "atomic-red-team": "Atomic Red Team",
   "contact": {
     "title": "Slack ↗",
     "type": "page",
