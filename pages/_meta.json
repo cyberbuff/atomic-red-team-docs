@@ -1,17 +1,19 @@
 {
-  "index": "Introduction",
-  "invoke-atomicredteam": "Invoke-AtomicRedTeam",
-  "slack-link": {
-    "title": "Slack ↗",
-    "href": "https://slack.atomicredteam.io/",
-    "newWindow": true
+  "index": {
+    "title": "Introduction",
+    "type": "page",
+    "display": "hidden"
   },
-  "about": {
-    "title": "About",
+  "invoke-atomicredteam": {
+    "title": "Invoke-Atomic",
+    "type": "page"
+  },
+  "atomic-red-team": {
+    "title": "Atomic Red Team",
     "type": "page"
   },
   "contact": {
-    "title": "Contact ↗",
+    "title": "Slack ↗",
     "type": "page",
     "href": "https://slack.atomicredteam.io/",
     "newWindow": true
