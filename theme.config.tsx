@@ -1,5 +1,6 @@
 import React from 'react'
-import {DocsThemeConfig, useConfig} from 'nextra-theme-docs'
+// @ts-ignore
+import {DocsThemeConfig, useConfig} from "nextra-theme-docs"
 import {useRouter} from 'next/router'
 import {Analytics} from '@vercel/analytics/react';
 
