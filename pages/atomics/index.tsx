@@ -50,7 +50,7 @@ export function Table() {
         "windows": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg",
         "linux": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1920px-Tux.svg.png",
         "macos": "https://upload.wikimedia.org/wikipedia/commons/2/22/MacOS_logo_%282017%29.svg",
-        "iaas:gcp": "https://www.gend.co/hs-fs/hubfs/gcp-logo-cloud.png?width=1460&name=gcp-logo-cloud.png",
+        "iaas:gcp": "https://www.gstatic.com/pantheon/images/welcome/supercloud.svg",
         "iaas:aws": "https://pbs.twimg.com/profile_images/1641476962362302464/K8lb6OtN_400x400.jpg",
         "office-365": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Microsoft_365_%282022%29.svg/1024px-Microsoft_365_%282022%29.svg.png?20231004051714",
         "google-workspace": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png",
@@ -113,7 +113,9 @@ export function Table() {
             render: (value) => {
                 return <EuiFlexGroup gutterSize={"s"}>
                     {(value.sort()).map(x => {
-                        return <EuiIcon type={executorUrls[x] ?? ""} size="xxl" title={x}/>
+                        return <EuiFlexItem grow={false} key={x}>
+                            <EuiIcon type={executorUrls[x] ?? ""} size="xxl" title={x}/>
+                        </EuiFlexItem>
                     })}
                 </EuiFlexGroup>
             }
