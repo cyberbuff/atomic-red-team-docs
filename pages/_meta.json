@@ -1,7 +1,15 @@
 {
-  "index":  "Home",
-  "invoke-atomicredteam":  "Invoke-Atomic",
+  "index": "Home",
+  "invoke-atomicredteam": "Invoke-Atomic",
   "atomic-red-team": "Atomic Red Team",
+  "atomics": {
+    "title": "Atomics",
+    "type": "page",
+    "theme": {
+      "sidebar": false
+    },
+    "href": "/atomics"
+  },
   "contact": {
     "title": "Slack ↗",
     "type": "page",
