@@ -1,40 +1,14 @@
 {
-  "index": "Introduction",
-  "-- Installation": {
-    "type": "separator",
-    "title": "Installation"
+  "index": {
+    "type": "page",
+    "display": "hidden",
+    "theme": {
+      "sidebar": false,
+      "toc": true
+    }
   },
-  "getting-started": "Getting Started",
-  "import-module": "Import the Module",
-  "-- Execution": {
-    "type": "separator",
-    "title": "Execution"
-  },
-  "list-atomics": "List Atomic Tests",
-  "check-prereqs": "Check or Get Prerequisites for Atomic Tests",
-  "execute-tests-locally": "Execute Atomic Tests (Local)",
-  "execute-tests-remotely": "Execute Atomic Tests (Remote)",
-  "custom-input-arguments": "Specify Custom Input Arguments",
-  "cleanup": "Cleanup after Execution",
-  "execution-logging": "Execution Logging",
-  "execute-tests-programatically": "Execute Tests Programmatically",
-  "-- Scheduling": {
-    "type": "separator",
-    "title": "Scheduling"
-  },
-  "adversary-emulation": "Adversary Emulation",
-  "continuous-atomic-testing": "Continuous Atomic Testing",
-  "execution-hooks": "Execution Hooks",
-  "-- Contributing": {
-    "type": "separator",
-    "title": "Contributing"
-  },
-  "atomic-gui": "The Atomic GUI",
-  "creating-new-tests-programatically": "Creating New Tests Programmatically",
-  "-- Other": {
-    "type": "separator",
-    "title": "Other"
-  },
-  "helper-functions": "Helper Functions",
-  "uninstall-module": "Uninstall the Module"
+  "docs": {
+    "title": "Docs",
+    "display": "children"
+  }
 }

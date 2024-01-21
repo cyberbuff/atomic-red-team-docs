@@ -1,11 +1,14 @@
 {
-  "index":  "Home",
-  "invoke-atomicredteam":  "Invoke-Atomic",
+  "*": {
+    "type": "page"
+  },
+  "index": {
+    "display": "hidden",
+    "theme": {
+      "sidebar": false,
+      "toc": true
+    }
+  },
   "atomic-red-team": "Atomic Red Team",
-  "contact": {
-    "title": "Slack ↗",
-    "type": "page",
-    "href": "https://slack.atomicredteam.io/",
-    "newWindow": true
-  }
+  "invoke-atomicredteam": "Invoke-Atomic"
 }

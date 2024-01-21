@@ -1,9 +1,19 @@
-import { Analytics } from "@vercel/analytics/react";
+import "../styles.css";
+import { EuiProvider } from "@elastic/eui";
+import "@elastic/eui/dist/eui_theme_dark.css";
+import { useEffect, useState } from "react";
 
 export default function Nextra({ Component, pageProps }) {
-  return (
-    <>
-      <Component {...pageProps} />
-    </>
-  );
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  if (isClient) {
+    return (
+      <EuiProvider colorMode="dark">
+        <Component {...pageProps} />
+      </EuiProvider>
+    );
+  }
+  return null;
 }
