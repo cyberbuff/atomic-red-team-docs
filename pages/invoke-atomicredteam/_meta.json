@@ -1,0 +1,14 @@
+{
+  "index": {
+    "type": "page",
+    "display": "hidden",
+    "theme": {
+      "sidebar": false,
+      "toc": true
+    }
+  },
+  "docs": {
+    "title": "Docs",
+    "display": "children"
+  }
+}
