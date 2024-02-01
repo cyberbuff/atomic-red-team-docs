@@ -1,23 +1,12 @@
-# Nextra Docs Template
+# Atomic Red Team Docs
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+Welcome to the new Atomic Red Team wiki. This wiki is a work in progress. If you have any questions, please reach out to
+us on the [Slack channel](https://slack.atomicredteam.io/).
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
-
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
-
-## Quick Start
-
-Click the button to clone this repository and deploy it on Vercel:
-
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
+This website uses [Nextra](https://nextra.site) and [Elastic UI](https://eui.elastic.co).
 
 ## Local Development
 
 First, run `pnpm i` to install the dependencies.
 
 Then, run `pnpm dev` to start the development server and visit localhost:3000.
-
-## License
-
-This project is licensed under the MIT License.
