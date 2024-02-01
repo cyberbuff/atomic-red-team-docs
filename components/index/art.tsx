@@ -8,7 +8,6 @@ export function App() {
     return (
         <EuiProvider colorMode={"dark"}>
             <EuiPageTemplate
-                restrictWidth="90%"
                 panelled={null}
                 css={{ backgroundColor: "black" }}
             >

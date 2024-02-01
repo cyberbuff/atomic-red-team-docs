@@ -13,7 +13,7 @@
   "writing-cloud-atomics": "Writing cloud atomics",
   "atomic-gui": {
     "title": "Creating new tests using Atomic GUI",
-    "href": "/invoke-atomicredteam/atomic-gui"
+    "href": "/invoke-atomicredteam/docs/atomic-gui"
   },
   "creating-new-tests": {
     "title": "Creating new tests programmatically",
