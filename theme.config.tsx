@@ -1,14 +1,15 @@
 import React from "react";
 // @ts-ignore
-import { DocsThemeConfig, Navbar, useConfig } from "nextra-theme-docs";
-import { useRouter } from "next/router";
-import { Analytics } from "@vercel/analytics/react";
-import { Logo } from "./components/logo";
-import { Navigation } from "./components/navigation";
+import {DocsThemeConfig, Navbar, useConfig} from "nextra-theme-docs";
+import {useRouter} from "next/router";
+import {Analytics} from "@vercel/analytics/react";
+import {Logo} from "./components/logo";
+import {Navigation} from "./components/navigation";
 import slackLogo from "./public/slack.svg";
 import Image from "next/image";
 
 const config: DocsThemeConfig = {
+    darkMode: false,
   logo: <Logo />,
   project: {
     link: "https://github.com/redcanaryco/atomic-red-team",

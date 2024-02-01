@@ -1,6 +1,7 @@
 import {
   EuiBadge,
   EuiBasicTableColumn,
+  EuiButtonIcon,
   EuiFlexGroup,
   EuiFlexItem,
   EuiIcon,
@@ -48,25 +49,28 @@ export function Table() {
     queryFn: getAtomics,
   });
   const executorUrls = {
-    windows:
-      "https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg",
-    linux:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1920px-Tux.svg.png",
-    macos:
-      "https://upload.wikimedia.org/wikipedia/commons/2/22/MacOS_logo_%282017%29.svg",
-    "iaas:gcp":
-      "https://www.gstatic.com/pantheon/images/welcome/supercloud.svg",
-    "iaas:aws":
-      "https://pbs.twimg.com/profile_images/1641476962362302464/K8lb6OtN_400x400.jpg",
-    "office-365":
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Microsoft_365_%282022%29.svg/1024px-Microsoft_365_%282022%29.svg.png?20231004051714",
+    powershell:
+      "https://upload.wikimedia.org/wikipedia/commons/a/af/PowerShell_Core_6.0_icon.png",
+    sh: "https://img.icons8.com/fluency/48/console.png",
+    command_prompt: "https://img.icons8.com/fluency/48/command-line.png",
+    manual: "https://img.icons8.com/fluency/48/hammer.png",
+    bash: "https://img.icons8.com/color/48/bash.png",
+  };
+
+  const platformUrls = {
+    windows: "/platforms/windows.svg",
+    linux: "/platforms/linux.svg",
+    macos: "/platforms/macos.svg",
+    "iaas:gcp": "/platforms/gcp.svg",
+    "iaas:aws": "/platforms/aws.svg",
+    "azure-ad": "/platforms/azuread.svg",
+    "iaas:azure": "/platforms/azure.svg",
+    "office-365": "/platforms/microsoft365.svg",
     "google-workspace":
       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png",
     containers: "https://kubernetes.io/images/favicon.png",
-    "iaas:azure": "https://swimburger.net/media/ppnn3pcl/azure.png",
-    "azure-ad":
-      "https://static-00.iconduck.com/assets.00/azure-active-directory-aad-icon-1951x2048-2rv1xjcr.png",
   };
+
   const tacticColors: Record<string, string> = {
     execution: "primary",
     persistence: "success",
@@ -104,7 +108,8 @@ export function Table() {
       field: "display_name",
       name: "Name",
       sortable: true,
-      width: "600px",
+      textOnly: true,
+      width: "auto",
     },
     {
       field: "phases",
@@ -125,13 +130,14 @@ export function Table() {
     {
       field: "supported_platforms",
       name: "Platforms",
+      width: "300px",
       render: (value) => {
         return (
           <EuiFlexGroup gutterSize={"s"}>
             {value.sort().map((x) => {
               return (
                 <EuiFlexItem grow={false} key={x}>
-                  <EuiIcon type={executorUrls[x] ?? ""} size="l" title={x} />
+                  <EuiIcon type={platformUrls[x] ?? ""} size="xl" title={x} />
                 </EuiFlexItem>
               );
             })}
@@ -142,6 +148,20 @@ export function Table() {
     {
       field: "executors",
       name: "Executors",
+      width: "150px",
+      render: (value) => {
+        return (
+          <EuiFlexGroup gutterSize={"s"}>
+            {value.sort().map((x) => {
+              return (
+                <EuiFlexItem grow={false} key={x}>
+                  <EuiIcon type={executorUrls[x] ?? ""} size="xl" title={x} />
+                </EuiFlexItem>
+              );
+            })}
+          </EuiFlexGroup>
+        );
+      },
     },
   ];
 
@@ -169,8 +189,20 @@ export function Table() {
           atomics.map(({ supported_platforms }) => supported_platforms).flat(1),
         ).map((x) => ({
           value: x,
+          view: (
+            <>
+              <EuiButtonIcon
+                size="m"
+                iconType={platformUrls[x] ?? ""}
+                aria-label={x}
+                color="success"
+              />
+              {x}
+            </>
+          ),
         })),
       },
+
       {
         type: "field_value_selection",
         field: "executors",
@@ -180,6 +212,16 @@ export function Table() {
         options: uniq(atomics.map(({ executors }) => executors).flat(1)).map(
           (x) => ({
             value: x,
+            view: (
+              <>
+                <EuiButtonIcon
+                  iconType={executorUrls[x] ?? ""}
+                  aria-label="Dashboard"
+                  color="success"
+                />
+                {x}
+              </>
+            ),
           }),
         ),
       },
