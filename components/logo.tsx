@@ -1,4 +1,4 @@
-import { SiteSwitcher } from "./switcher";
+import {SiteSwitcher} from "./switcher";
 
 export const Logo = () => (
   <>
@@ -9,6 +9,7 @@ export const Logo = () => (
       height={30}
       style={{
         marginRight: 4,
+          pointerEvents: "none",
       }}
     />
     <SiteSwitcher />
