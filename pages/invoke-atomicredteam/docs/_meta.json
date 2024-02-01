@@ -1,10 +1,9 @@
 {
-  "index": "Introduction",
   "-- Installation": {
     "type": "separator",
     "title": "Installation"
   },
-  "getting-started": "Getting Started",
+  "index": "Getting Started",
   "import-module": "Import the Module",
   "-- Execution": {
     "type": "separator",

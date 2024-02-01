@@ -1,10 +1,4 @@
 import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
-import axios from "axios";
-import {
   EuiBadge,
   EuiBasicTableColumn,
   EuiFlexGroup,
@@ -14,10 +8,15 @@ import {
   EuiLoadingSpinner,
   EuiSearchBarProps,
 } from "@elastic/eui";
-import React from "react";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
+import axios from "axios";
 import uniq from "lodash/uniq";
-import { FieldValueOptionType } from "@elastic/eui/src/components/search_bar/filters/field_value_selection_filter";
 import Link from "next/link";
+import React from "react";
 
 const queryClient = new QueryClient();
 
@@ -132,7 +131,7 @@ export function Table() {
             {value.sort().map((x) => {
               return (
                 <EuiFlexItem grow={false} key={x}>
-                  <EuiIcon type={executorUrls[x] ?? ""} size="xxl" title={x} />
+                  <EuiIcon type={executorUrls[x] ?? ""} size="l" title={x} />
                 </EuiFlexItem>
               );
             })}

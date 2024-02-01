@@ -37,24 +37,22 @@ function SiteSwitcherLink({ href, text, isActive }: Props) {
   const conditionalClasses = {
     "bg-[#333333] mr-1": Boolean(isActive),
   };
-
-  return (
-    <>
-      {isClient && (
-        <Link className={cn(classes, conditionalClasses)} href={href}>
-          {text}
-        </Link>
-      )}
-    </>
-  );
+  if (isClient) {
+    return (
+      <Link className={cn(classes, conditionalClasses)} href={href}>
+        {text}
+      </Link>
+    );
+  }
+  return null;
 }
 
 export function SiteSwitcher() {
   const site = useTurboSite();
   console.log(site);
   return (
-    <div className="bg-[#0D0D0D] py-2 px-4 flex items-center justify-start space-x-4">
-      <div className="bg-[#1E1E1E] rounded-lg py-1 px-2 flex items-center">
+    <div className="flex items-center justify-start space-x-4 bg-[#0D0D0D] px-4 py-2">
+      <div className="flex items-center rounded-lg bg-[#1E1E1E] px-2 py-1">
         <SiteSwitcherLink
           href="/atomic-red-team"
           text="AtomicRedTeam"

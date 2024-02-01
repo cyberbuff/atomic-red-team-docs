@@ -1,16 +1,15 @@
-import {Card} from "./card";
 import {EuiButton, EuiFlexGroup, EuiPageTemplate, EuiProvider, EuiSpacer,} from "@elastic/eui";
-
 import "@elastic/eui/dist/eui_theme_dark.css";
-import {AtomicsTable} from "./atomics";
+import {AtomicsTable} from "../atomics";
+import {Card} from "../card";
+import Link from "next/link";
 
 export function App() {
     return (
         <EuiProvider colorMode={"dark"}>
             <EuiPageTemplate
-                restrictWidth="75%"
                 panelled={null}
-                css={{backgroundColor: "black"}}
+                css={{ backgroundColor: "black" }}
             >
                 <EuiPageTemplate.Header
                     pageTitle="Atomic Red Team"
@@ -18,7 +17,18 @@ export function App() {
                     iconProps={{
                         href: "https://atomicredteam.io/favicon.ico",
                     }}
-                    rightSideItems={[<EuiButton href="/atomic-red-team/docs">Get Started</EuiButton>]}
+                    rightSideItems={[
+                        <Link href="/atomic-red-team/atomics/T1003" key="atomics">
+                            <EuiButton key="atomics">
+                                View all atomics
+                            </EuiButton>
+                        </Link>,
+                        <Link href="/atomic-red-team/docs" key="atomics">
+                            <EuiButton key="get-started">
+                                Get Started
+                            </EuiButton>
+                        </Link>,
+                    ]}
                 />
 
                 <EuiPageTemplate.Section color="transparent">
@@ -36,8 +46,8 @@ export function App() {
                             description="Atomic Red Team is open source and community developed. By working together, we can develop a fuller picture of the security landscape."
                         />
                     </EuiFlexGroup>
-                    <EuiSpacer size="xxl"/>
-                    <AtomicsTable/>
+                    <EuiSpacer size="xxl" />
+                    <AtomicsTable />
                 </EuiPageTemplate.Section>
             </EuiPageTemplate>
         </EuiProvider>

@@ -1,5 +1,5 @@
-import React from "react";
 import { EuiCard, EuiCardProps, EuiFlexItem } from "@elastic/eui";
+import React from "react";
 
 export function Card(
   props: Pick<EuiCardProps, "icon" | "title" | "description">,

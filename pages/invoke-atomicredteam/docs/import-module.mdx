@@ -1,5 +1,4 @@
-import { Callout, Tabs, Tab } from "nextra-theme-docs";
-import Link from "next/link";
+import {Tab, Tabs} from "nextra-theme-docs";
 
 ## Import the Module
 
@@ -9,12 +8,13 @@ In order make the `Invoke-AtomicTest` function available for use in your current
 
 <Tabs items={["Windows", "Linux", "MacOS"]}>
   <Tab>
-    ```powershell Import-Module
-    "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force ```
+    ```powershell
+    Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
+    ```
   </Tab>
   <Tab>
-    ```powershell Import-Module
-    "$HOME/AtomicRedTeam/invoke-atomicredteam/Invoke-AtomicRedTeam.psd1" -Force
+    ```powershell
+    Import-Module "$HOME/AtomicRedTeam/invoke-atomicredteam/Invoke-AtomicRedTeam.psd1" -Force
     ```
   </Tab>
   <Tab>
@@ -35,31 +35,43 @@ If you would like to ensure that the `Invoke-AtomicTest` functionality is always
 A simple way to access your profile script is to execute the following from a PowerShell prompt.
 
 <Tabs items={["Windows", "Linux", "MacOS"]}>
-  <Tab>```powershell notepad $profile ```</Tab>
-  <Tab>```powershell nano $profile ```</Tab>
-  <Tab>```powershell open -a TextEdit $profile ```</Tab>
+  <Tab>
+    ```powershell
+    notepad $profile
+    ```
+  </Tab>
+  <Tab>
+    ```powershell
+    nano $profile
+    ```
+  </Tab>
+  <Tab>
+    ```powershell
+    open -a TextEdit $profile
+    ```
+  </Tab>
 </Tabs>
 
 Here is an example profile to import the module at startup and to set the default `-PathToAtomicsFolder`.
 
 <Tabs items={['Windows', 'Linux', 'MacOS']}>
   <Tab>
-```powershell
-Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
-$PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="C:\AtomicRedTeam\atomics"}
-```
+    ```powershell
+    Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
+    $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder" = "C:\AtomicRedTeam\atomics"}
+    ```
   </Tab>
   <Tab>
-```powershell
-Import-Module "$HOME/AtomicRedTeam/invoke-atomicredteam/Invoke-AtomicRedTeam.psd1" -Force
-$PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="$HOME/AtomicRedTeam/atomics"}
-```
+    ```powershell
+    Import-Module "$HOME/AtomicRedTeam/invoke-atomicredteam/Invoke-AtomicRedTeam.psd1" -Force
+    $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder" = "$HOME/AtomicRedTeam/atomics"}
+    ```
   </Tab>
   <Tab>
-```powershell
-Import-Module "$HOME/AtomicRedTeam/invoke-atomicredteam/Invoke-AtomicRedTeam.psd1" -Force
-$PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="$HOME/AtomicRedTeam/atomics"}
-```
+    ```powershell
+    Import-Module "$HOME/AtomicRedTeam/invoke-atomicredteam/Invoke-AtomicRedTeam.psd1" -Force
+    $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder" = "$HOME/AtomicRedTeam/atomics"}
+    ```
   </Tab>
 </Tabs>
 
