@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import { Analytics } from "@vercel/analytics/react";
 import { Logo } from "./components/logo";
 import { Navigation } from "./components/navigation";
+import slackLogo from "./public/slack.svg";
+import Image from "next/image";
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
@@ -13,6 +15,13 @@ const config: DocsThemeConfig = {
   },
   chat: {
     link: "https://slack.atomicredteam.io/",
+    icon: (
+      <Image
+        src={slackLogo}
+        style={{ height: 20, width: 20 }}
+        alt="slack logo"
+      />
+    ),
   },
   toc: {
     float: true,
