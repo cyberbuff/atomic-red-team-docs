@@ -58,7 +58,7 @@ function Contents() {
 
         <EuiFlexItem>
           <EuiCard
-            icon={<EuiIcon size="xxl" type="/logo.png" />}
+            icon={<EuiIcon size="xxl" type="/harness.png" />}
             title={""}
             description="AtomicTestHarnesses is a library that simulates and validates attack technique execution"
             betaBadgeProps={{
@@ -110,7 +110,8 @@ export function App() {
         css={{ backgroundColor: "black" }}
       >
         <EuiPageTemplate.Header
-          pageTitle="Test your defenses with Atomic Red Team™"
+          pageTitle="Welcome to the new Atomic Hub"
+          description="You can find all of the projects and resources related to Atomic Red Team here. Feel free to contribute to the projects or the website. We are always looking for new contributors."
           iconProps={{
             href: "https://atomicredteam.io/favicon.ico",
           }}
