@@ -6,7 +6,8 @@
     "display": "hidden",
     "theme": {
       "sidebar": false,
-      "toc": true
+      "toc": true,
+      "layout": "raw"
     }
   },
   "atomic-red-team": "Atomic Red Team",

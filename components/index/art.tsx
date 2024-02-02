@@ -1,6 +1,7 @@
 import {
   EuiButton,
   EuiFlexGroup,
+  EuiIcon,
   EuiPageTemplate,
   EuiProvider,
   EuiSpacer,
@@ -37,14 +38,17 @@ export function App() {
         <EuiPageTemplate.Section color="transparent">
           <EuiFlexGroup gutterSize="l">
             <Card
+              icon={<EuiIcon size="xxl" type="metricbeatApp" />}
               title="Fast"
               description="Atomic tests run in five minutes or less and require minimal setup. Spend less time configuring and more time testing!"
             />
             <Card
+              icon={<EuiIcon size="xxl" type="fleetApp" />}
               title="Focussed"
               description="Security teams don’t want to operate with a “hopes and prayers” attitude towards detection. Atomic tests are mapped to the MITRE ATT&CK matrix, so you always know which techniques you do and don’t detect."
             />
             <Card
+              icon={<EuiIcon size="xxl" type="usersRolesApp" />}
               title="Community-driven"
               description="Atomic Red Team is open source and community developed. By working together, we can develop a fuller picture of the security landscape."
             />
