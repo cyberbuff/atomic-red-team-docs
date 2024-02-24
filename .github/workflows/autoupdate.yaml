@@ -1,7 +1,7 @@
 name: generate-atomics
 on:
   schedule:
-    - cron: '24 * * * *'
+    - cron: '52 * * * *'
 permissions:
   contents: write
 jobs:
@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PROTECTED_BRANCH_PUSH_TOKEN }}
       - name: Install poetry
         run: pipx install poetry
       - uses: actions/setup-python@v5
@@ -23,7 +25,9 @@ jobs:
         run: poetry run pre-commit run --all-files
       - name: update github with new site
         run: |
-          git config --global user.name 'cyberbuff'
+          git config --global user.name 'actions-bot'
           git config --global user.email 'username@users.noreply.github.com'
-          git commit -am "Automated update"
+          git add .
+          git commit --allow-empty -m "Automated update"
+          git config --global push.default simple
           git push origin $GITHUB_REF_NAME -f
