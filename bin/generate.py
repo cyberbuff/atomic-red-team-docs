@@ -44,7 +44,7 @@ def create_atomics_json():
             del content["atomic_tests"]
             content["phases"] = sorted(techniques[content["attack_technique"]])
             contents.append(content)
-
+    contents = sorted(contents, key=lambda x: x["attack_technique"])
     with open("public/atomics.json", "w") as f:
         f.write(json.dumps(contents, indent=4))
 
