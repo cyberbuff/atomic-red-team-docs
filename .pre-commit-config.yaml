@@ -5,6 +5,11 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-builtin-literals
+      - id: end-of-file-fixer
+      - id: check-added-large-files
   - repo: https://github.com/biomejs/pre-commit
     rev: "v0.1.0"
     hooks:
@@ -14,3 +19,7 @@ repos:
     rev: "v0.11.0"
     hooks:
       - id: yamlfmt
+  - repo: https://github.com/jendrikseipp/vulture
+    rev: 'v2.3' # or any later Vulture version
+    hooks:
+      - id: vulture
