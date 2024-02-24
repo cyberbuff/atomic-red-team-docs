@@ -2,11 +2,11 @@ import { EuiCard, EuiCardProps, EuiFlexItem } from "@elastic/eui";
 import React from "react";
 
 export function Card(
-  props: Pick<EuiCardProps, "icon" | "title" | "description">,
+	props: Pick<EuiCardProps, "icon" | "title" | "description">,
 ) {
-  return (
-    <EuiFlexItem>
-      <EuiCard hasBorder {...props} />
-    </EuiFlexItem>
-  );
+	return (
+		<EuiFlexItem>
+			<EuiCard hasBorder {...props} />
+		</EuiFlexItem>
+	);
 }
