@@ -13,6 +13,9 @@ attackcti = "^0.4.0"
 pyyaml = "^6.0.1"
 pre-commit = "^3.6.2"
 
+[tool.vulture]
+paths = ["bin"]
+
 
 [build-system]
 requires = ["poetry-core"]
