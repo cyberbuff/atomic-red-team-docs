@@ -176,9 +176,11 @@ export function Table() {
 				field: "phases",
 				name: "Tactic",
 				multiSelect: false,
-				options: uniq(atomics.flatMap(({ phases }) => phases)).map((x) => ({
-					value: x,
-				})),
+				options: uniq(atomics.flatMap(({ phases }) => phases)).map(
+					(x: string) => ({
+						value: x,
+					}),
+				),
 			},
 			{
 				type: "field_value_selection",
@@ -187,7 +189,7 @@ export function Table() {
 				multiSelect: false,
 				options: uniq(
 					atomics.flatMap(({ supported_platforms }) => supported_platforms),
-				).map((x) => ({
+				).map((x: string) => ({
 					value: x,
 					view: (
 						<>
@@ -210,7 +212,7 @@ export function Table() {
 				multiSelect: false,
 				operator: "exact",
 				options: uniq(atomics.flatMap(({ executors }) => executors)).map(
-					(x) => ({
+					(x: string) => ({
 						value: x,
 						view: (
 							<>

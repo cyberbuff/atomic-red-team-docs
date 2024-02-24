@@ -1,5 +1,6 @@
 {
   "name": "atomic-red-team-docs",
+  "private": true,
   "version": "0.0.1",
   "description": "Atomic Red Team docs",
   "scripts": {
