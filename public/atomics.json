@@ -1,131 +1,80 @@
 [
 	{
-		"attack_technique": "T1053.005",
-		"display_name": "Scheduled Task/Job: Scheduled Task",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["execution", "persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1574.008",
-		"display_name": "Hijack Execution Flow: Path Interception by Search Order Hijacking",
+		"attack_technique": "T1567.002",
+		"display_name": "Exfiltration Over Web Service: Exfiltration to Cloud Storage",
 		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
+		"phases": ["exfiltration"]
 	},
 	{
-		"attack_technique": "T1547.010",
-		"display_name": "Boot or Logon Autostart Execution: Port Monitors",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1053.002",
-		"display_name": "Scheduled Task/Job: At",
-		"executors": ["command_prompt", "sh"],
-		"supported_platforms": ["linux", "windows"],
-		"phases": ["execution", "persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1036",
-		"display_name": "Masquerading",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1078.003",
-		"display_name": "Valid Accounts: Local Accounts",
-		"executors": ["bash", "command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": [
-			"defense-evasion",
-			"initial-access",
-			"persistence",
-			"privilege-escalation"
-		]
-	},
-	{
-		"attack_technique": "T1560.001",
-		"display_name": "Archive Collected Data: Archive via Utility",
-		"executors": ["bash", "command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1574.001",
-		"display_name": "Hijack Execution Flow: DLL Search Order Hijacking",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1490",
-		"display_name": "Inhibit System Recovery",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["impact"]
-	},
-	{
-		"attack_technique": "T1548.001",
-		"display_name": "Abuse Elevation Control Mechanism: Setuid and Setgid",
-		"executors": ["sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1078.004",
-		"display_name": "Valid Accounts: Cloud Accounts",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["google-workspace", "iaas:azure", "iaas:gcp"],
-		"phases": [
-			"defense-evasion",
-			"initial-access",
-			"persistence",
-			"privilege-escalation"
-		]
-	},
-	{
-		"attack_technique": "T1007",
-		"display_name": "System Service Discovery",
-		"executors": ["bash", "command_prompt"],
-		"supported_platforms": ["linux", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1574.006",
-		"display_name": "Hijack Execution Flow: LD_PRELOAD",
+		"attack_technique": "T1569.001",
+		"display_name": "System Services: Launchctl",
 		"executors": ["bash"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
+		"supported_platforms": ["macos"],
+		"phases": ["execution"]
 	},
 	{
-		"attack_technique": "T1098",
-		"display_name": "Account Manipulation",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": [
-			"azure-ad",
-			"iaas:aws",
-			"iaas:azure",
-			"iaas:gcp",
-			"windows"
-		],
-		"phases": ["persistence", "privilege-escalation"]
+		"attack_technique": "T1556.003",
+		"display_name": "Modify Authentication Process: Pluggable Authentication Modules",
+		"executors": ["sh"],
+		"supported_platforms": ["linux"],
+		"phases": ["credential-access", "defense-evasion", "persistence"]
 	},
 	{
-		"attack_technique": "T1562.009",
-		"display_name": "Impair Defenses: Safe Boot Mode",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1546.010",
-		"display_name": "Event Triggered Execution: AppInit DLLs",
+		"attack_technique": "T1037.001",
+		"display_name": "Boot or Logon Initialization Scripts: Logon Script (Windows)",
 		"executors": ["command_prompt"],
 		"supported_platforms": ["windows"],
 		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1547.015",
+		"display_name": "Boot or Logon Autostart Execution: Login Items",
+		"executors": ["bash", "powershell"],
+		"supported_platforms": ["macos", "windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1546.007",
+		"display_name": "Event Triggered Execution: Netsh Helper DLL",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1555.001",
+		"display_name": "Credentials from Password Stores: Keychain",
+		"executors": ["sh"],
+		"supported_platforms": ["macos"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1546.011",
+		"display_name": "Event Triggered Execution: Application Shimming",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1547.002",
+		"display_name": "Authentication Package",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1546.012",
+		"display_name": "Event Triggered Execution: Image File Execution Options Injection",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1046",
+		"display_name": "Network Service Discovery",
+		"executors": ["bash", "powershell", "sh"],
+		"supported_platforms": ["containers", "linux", "macos", "windows"],
+		"phases": ["discovery"]
 	},
 	{
 		"attack_technique": "T1091",
@@ -135,6 +84,13 @@
 		"phases": ["initial-access", "lateral-movement"]
 	},
 	{
+		"attack_technique": "T1070.002",
+		"display_name": "Indicator Removal on Host: Clear FreeBSD, Linux or Mac System Logs",
+		"executors": ["bash", "sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["defense-evasion"]
+	},
+	{
 		"attack_technique": "T1039",
 		"display_name": "Data from Network Shared Drive",
 		"executors": ["command_prompt", "powershell"],
@@ -142,53 +98,207 @@
 		"phases": ["collection"]
 	},
 	{
-		"attack_technique": "T1496",
-		"display_name": "Resource Hijacking",
-		"executors": ["sh"],
+		"attack_technique": "T1222.002",
+		"display_name": "File and Directory Permissions Modification: FreeBSD, Linux and Mac File and Directory Permissions Modification",
+		"executors": ["bash", "sh"],
 		"supported_platforms": ["linux", "macos"],
-		"phases": ["impact"]
+		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1006",
-		"display_name": "Direct Volume Access",
+		"attack_technique": "T1526",
+		"display_name": "Cloud Service Discovery",
 		"executors": ["powershell"],
+		"supported_platforms": ["iaas:azure"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1563.002",
+		"display_name": "Remote Service Session Hijacking: RDP Hijacking",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["lateral-movement"]
+	},
+	{
+		"attack_technique": "T1055.002",
+		"display_name": "Process Injection: Portable Executable Injection",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1547",
+		"display_name": "Boot or Logon Autostart Execution",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1218.007",
+		"display_name": "Signed Binary Proxy Execution: Msiexec",
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1087.002",
-		"display_name": "Account Discovery: Domain Account",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "windows"],
+		"attack_technique": "T1559.002",
+		"display_name": "Inter-Process Communication: Dynamic Data Exchange",
+		"executors": ["command_prompt", "manual"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1195",
+		"display_name": "Supply Chain Compromise",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["initial-access"]
+	},
+	{
+		"attack_technique": "T1556.002",
+		"display_name": "Modify Authentication Process: Password Filter DLL",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access", "defense-evasion", "persistence"]
+	},
+	{
+		"attack_technique": "T1546.002",
+		"display_name": "Event Triggered Execution: Screensaver",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1497.001",
+		"display_name": "Virtualization/Sandbox Evasion: System Checks",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["defense-evasion", "discovery"]
+	},
+	{
+		"attack_technique": "T1016",
+		"display_name": "System Network Configuration Discovery",
+		"executors": ["bash", "command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
 		"phases": ["discovery"]
 	},
 	{
-		"attack_technique": "T1053.003",
-		"display_name": "Scheduled Task/Job: Cron",
-		"executors": ["bash", "sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["execution", "persistence", "privilege-escalation"]
+		"attack_technique": "T1528",
+		"display_name": "Steal Application Access Token",
+		"executors": ["powershell"],
+		"supported_platforms": ["iaas:azure"],
+		"phases": ["credential-access"]
 	},
 	{
-		"attack_technique": "T1574.009",
-		"display_name": "Hijack Execution Flow: Path Interception by Unquoted Path",
+		"attack_technique": "T1071.004",
+		"display_name": "Application Layer Protocol: DNS",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["command-and-control"]
+	},
+	{
+		"attack_technique": "T1114.003",
+		"display_name": "Email Collection: Email Forwarding Rule",
+		"executors": ["powershell"],
+		"supported_platforms": ["office-365"],
+		"phases": ["collection"]
+	},
+	{
+		"attack_technique": "T1559",
+		"display_name": "Inter-Process Communication",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1531",
+		"display_name": "Account Access Removal",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["azure-ad", "linux", "macos", "windows"],
+		"phases": ["impact"]
+	},
+	{
+		"attack_technique": "T1574.002",
+		"display_name": "Hijack Execution Flow: DLL Side-Loading",
 		"executors": ["command_prompt"],
 		"supported_platforms": ["windows"],
 		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
 	},
 	{
-		"attack_technique": "T1090.003",
-		"display_name": "Proxy: Multi-hop Proxy",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["command-and-control"]
+		"attack_technique": "T1070.001",
+		"display_name": "Indicator Removal on Host: Clear Windows Event Logs",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1030",
-		"display_name": "Data Transfer Size Limits",
+		"attack_technique": "T1530",
+		"display_name": "Data from Cloud Storage Object",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["iaas:aws", "iaas:azure"],
+		"phases": ["collection"]
+	},
+	{
+		"attack_technique": "T1558.001",
+		"display_name": "Steal or Forge Kerberos Tickets: Golden Ticket",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1059.007",
+		"display_name": "Command and Scripting Interpreter: JavaScript",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1110.003",
+		"display_name": "Brute Force: Password Spraying",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["azure-ad", "iaas:aws", "windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1553.004",
+		"display_name": "Subvert Trust Controls: Install Root Certificate",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1546.005",
+		"display_name": "Event Triggered Execution: Trap",
 		"executors": ["sh"],
 		"supported_platforms": ["linux", "macos"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1048",
+		"display_name": "Exfiltration Over Alternative Protocol",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
 		"phases": ["exfiltration"]
+	},
+	{
+		"attack_technique": "T1003.002",
+		"display_name": "OS Credential Dumping: Security Account Manager",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1027.002",
+		"display_name": "Obfuscated Files or Information: Software Packing",
+		"executors": ["sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1098.003",
+		"display_name": "Account Manipulation: Additional Cloud Roles",
+		"executors": ["powershell"],
+		"supported_platforms": ["azure-ad"],
+		"phases": ["persistence", "privilege-escalation"]
 	},
 	{
 		"attack_technique": "T1202",
@@ -198,11 +308,116 @@
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1562.006",
-		"display_name": "Impair Defenses: Indicator Blocking",
-		"executors": ["bash", "command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "windows"],
+		"attack_technique": "T1053.005",
+		"display_name": "Scheduled Task/Job: Scheduled Task",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution", "persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1059.004",
+		"display_name": "Command and Scripting Interpreter: Bash",
+		"executors": ["bash", "sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1218.005",
+		"display_name": "Signed Binary Proxy Execution: Mshta",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
 		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1553.003",
+		"display_name": "Subvert Trust Controls: SIP and Trust Provider Hijacking",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1027.006",
+		"display_name": "HTML Smuggling",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1030",
+		"display_name": "Data Transfer Size Limits",
+		"executors": ["sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["exfiltration"]
+	},
+	{
+		"attack_technique": "T1057",
+		"display_name": "Process Discovery",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1136.002",
+		"display_name": "Create Account: Domain Account",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "windows"],
+		"phases": ["persistence"]
+	},
+	{
+		"attack_technique": "T1547.012",
+		"display_name": "Boot or Logon Autostart Execution: Print Processors",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1059.005",
+		"display_name": "Command and Scripting Interpreter: Visual Basic",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1207",
+		"display_name": "Rogue Domain Controller",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1560.002",
+		"display_name": "Archive Collected Data: Archive via Library",
+		"executors": ["sh"],
+		"supported_platforms": ["linux"],
+		"phases": ["collection"]
+	},
+	{
+		"attack_technique": "T1137.002",
+		"display_name": "Office Application Startup: Office Test",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence"]
+	},
+	{
+		"attack_technique": "T1547.009",
+		"display_name": "Boot or Logon Autostart Execution: Shortcut Modification",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1560",
+		"display_name": "Archive Collected Data",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["collection"]
+	},
+	{
+		"attack_technique": "T1037.004",
+		"display_name": "Boot or Logon Initialization Scripts: Rc.common",
+		"executors": ["bash", "sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["persistence", "privilege-escalation"]
 	},
 	{
 		"attack_technique": "T1562.001",
@@ -218,51 +433,9 @@
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1546.011",
-		"display_name": "Event Triggered Execution: Application Shimming",
+		"attack_technique": "T1055.004",
+		"display_name": "Process Injection: Asynchronous Procedure Call",
 		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1055",
-		"display_name": "Process Injection",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1562.008",
-		"display_name": "Impair Defenses: Disable Cloud Logs",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": [
-			"iaas:aws",
-			"iaas:azure",
-			"iaas:gcp",
-			"linux",
-			"macos",
-			"office-365"
-		],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1614.001",
-		"display_name": "System Location Discovery: System Language Discovery",
-		"executors": ["command_prompt", "sh"],
-		"supported_platforms": ["linux", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1120",
-		"display_name": "Peripheral Device Discovery",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1055.002",
-		"display_name": "Process Injection: Portable Executable Injection",
-		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["defense-evasion", "privilege-escalation"]
 	},
@@ -274,130 +447,11 @@
 		"phases": ["persistence"]
 	},
 	{
-		"attack_technique": "T1069.002",
-		"display_name": "Permission Groups Discovery: Domain Groups",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1127",
-		"display_name": "Trusted Developer Utilities Proxy Execution",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1218.011",
-		"display_name": "Signed Binary Proxy Execution: Rundll32",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1566.001",
-		"display_name": "Phishing: Spearphishing Attachment",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["initial-access"]
-	},
-	{
-		"attack_technique": "T1056.004",
-		"display_name": "Input Capture: Credential API Hooking",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["collection", "credential-access"]
-	},
-	{
-		"attack_technique": "T1129",
-		"display_name": "Server Software Component",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1572",
-		"display_name": "Protocol Tunneling",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["command-and-control"]
-	},
-	{
-		"attack_technique": "T1003.001",
-		"display_name": "OS Credential Dumping: LSASS Memory",
-		"executors": ["command_prompt", "manual", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1526",
-		"display_name": "Cloud Service Discovery",
-		"executors": ["powershell"],
-		"supported_platforms": ["iaas:azure"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1134.005",
-		"display_name": "Access Token Manipulation: SID-History Injection",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1003.006",
-		"display_name": "OS Credential Dumping: DCSync",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1134.002",
-		"display_name": "Create Process with Token",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1187",
-		"display_name": "Forced Authentication",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1528",
-		"display_name": "Steal Application Access Token",
-		"executors": ["powershell"],
-		"supported_platforms": ["iaas:azure"],
-		"phases": ["credential-access"]
-	},
-	{
 		"attack_technique": "T1003.008",
 		"display_name": "OS Credential Dumping: /etc/passwd, /etc/master.passwd and /etc/shadow",
 		"executors": ["bash", "sh"],
 		"supported_platforms": ["linux"],
 		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1137.004",
-		"display_name": "Office Application Startup: Outlook Home Page",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence"]
-	},
-	{
-		"attack_technique": "T1573",
-		"display_name": "Encrypted Channel",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["command-and-control"]
-	},
-	{
-		"attack_technique": "T1056.002",
-		"display_name": "Input Capture: GUI Input Capture",
-		"executors": ["bash", "powershell"],
-		"supported_platforms": ["macos", "windows"],
-		"phases": ["collection", "credential-access"]
 	},
 	{
 		"attack_technique": "T1218.010",
@@ -407,186 +461,18 @@
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1580",
-		"display_name": "Cloud Infrastructure Discovery",
-		"executors": ["sh"],
-		"supported_platforms": ["iaas:aws", "linux", "macos"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1119",
-		"display_name": "Automated Collection",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1136.002",
-		"display_name": "Create Account: Domain Account",
+		"attack_technique": "T1562.004",
+		"display_name": "Impair Defenses: Disable or Modify System Firewall",
 		"executors": ["command_prompt", "powershell", "sh"],
 		"supported_platforms": ["linux", "windows"],
-		"phases": ["persistence"]
-	},
-	{
-		"attack_technique": "T1055.003",
-		"display_name": "Thread Execution Hijacking",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1055.004",
-		"display_name": "Process Injection: Asynchronous Procedure Call",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1564.006",
-		"display_name": "Run Virtual Instance",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1484.002",
-		"display_name": "Domain Trust Modification",
-		"executors": ["powershell"],
-		"supported_platforms": ["azure-ad"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1216.001",
-		"display_name": "Signed Script Proxy Execution: Pubprn",
+		"attack_technique": "T1137",
+		"display_name": "Office Application Startup",
 		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1564.001",
-		"display_name": "Hide Artifacts: Hidden Files and Directories",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1558.001",
-		"display_name": "Steal or Forge Kerberos Tickets: Golden Ticket",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1529",
-		"display_name": "System Shutdown/Reboot",
-		"executors": ["bash", "command_prompt", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["impact"]
-	},
-	{
-		"attack_technique": "T1137.002",
-		"display_name": "Office Application Startup: Office Test",
-		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["persistence"]
-	},
-	{
-		"attack_technique": "T1003.007",
-		"display_name": "OS Credential Dumping: Proc Filesystem",
-		"executors": ["bash", "sh"],
-		"supported_platforms": ["linux"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1134.004",
-		"display_name": "Access Token Manipulation: Parent PID Spoofing",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1518",
-		"display_name": "Software Discovery",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1195",
-		"display_name": "Supply Chain Compromise",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["initial-access"]
-	},
-	{
-		"attack_technique": "T1543.004",
-		"display_name": "Create or Modify System Process: Launch Daemon",
-		"executors": ["bash"],
-		"supported_platforms": ["macos"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1543.003",
-		"display_name": "Create or Modify System Process: Windows Service",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1098.001",
-		"display_name": "Account Manipulation: Additional Cloud Credentials",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["azure-ad", "iaas:aws"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1027.004",
-		"display_name": "Obfuscated Files or Information: Compile After Delivery",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1218.003",
-		"display_name": "Signed Binary Proxy Execution: CMSTP",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1556.003",
-		"display_name": "Modify Authentication Process: Pluggable Authentication Modules",
-		"executors": ["sh"],
-		"supported_platforms": ["linux"],
-		"phases": ["credential-access", "defense-evasion", "persistence"]
-	},
-	{
-		"attack_technique": "T1560",
-		"display_name": "Archive Collected Data",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1218.004",
-		"display_name": "Signed Binary Proxy Execution: InstallUtil",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1059.007",
-		"display_name": "Command and Scripting Interpreter: JavaScript",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1135",
-		"display_name": "Network Share Discovery",
-		"executors": ["bash", "command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["discovery"]
 	},
 	{
 		"attack_technique": "T1569.002",
@@ -596,339 +482,10 @@
 		"phases": ["execution"]
 	},
 	{
-		"attack_technique": "T1070.008",
-		"display_name": "Email Collection: Mailbox Manipulation",
-		"executors": ["bash", "powershell"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1543.002",
-		"display_name": "Create or Modify System Process: SysV/Systemd Service",
-		"executors": ["bash", "sh"],
-		"supported_platforms": ["linux"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1110.001",
-		"display_name": "Brute Force: Password Guessing",
-		"executors": ["bash", "command_prompt", "powershell"],
-		"supported_platforms": ["azure-ad", "linux", "windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1027.002",
-		"display_name": "Obfuscated Files or Information: Software Packing",
-		"executors": ["sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1070.006",
-		"display_name": "Indicator Removal on Host: Timestomp",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1070.001",
-		"display_name": "Indicator Removal on Host: Clear Windows Event Logs",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1059.001",
-		"display_name": "Command and Scripting Interpreter: PowerShell",
-		"executors": ["command_prompt", "manual", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1071.001",
-		"display_name": "Application Layer Protocol: Web Protocols",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["command-and-control"]
-	},
-	{
-		"attack_technique": "T1055.011",
-		"display_name": "Process Injection: Extra Window Memory Injection",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1555.003",
-		"display_name": "Credentials from Password Stores: Credentials from Web Browsers",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1133",
-		"display_name": "External Remote Services",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["initial-access", "persistence"]
-	},
-	{
-		"attack_technique": "T1059.006",
-		"display_name": "Command and Scripting Interpreter: Python",
-		"executors": ["sh"],
-		"supported_platforms": ["linux"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1555.004",
-		"display_name": "Credentials from Password Stores: Windows Credential Manager",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1105",
-		"display_name": "Ingress Tool Transfer",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["command-and-control"]
-	},
-	{
-		"attack_technique": "T1218.005",
-		"display_name": "Signed Binary Proxy Execution: Mshta",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1559",
-		"display_name": "Inter-Process Communication",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1556.002",
-		"display_name": "Modify Authentication Process: Password Filter DLL",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access", "defense-evasion", "persistence"]
-	},
-	{
-		"attack_technique": "T1218.002",
-		"display_name": "Signed Binary Proxy Execution: Control Panel",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1546.002",
-		"display_name": "Event Triggered Execution: Screensaver",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1552.002",
-		"display_name": "Unsecured Credentials: Credentials in Registry",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1036.005",
-		"display_name": "Masquerading: Match Legitimate Name or Location",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1619",
-		"display_name": "Cloud Storage Object Discovery",
-		"executors": ["sh"],
-		"supported_platforms": ["iaas:aws"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1070",
-		"display_name": "Indicator Removal on Host",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1048",
-		"display_name": "Exfiltration Over Alternative Protocol",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["exfiltration"]
-	},
-	{
-		"attack_technique": "T1552.005",
-		"display_name": "Unsecured Credentials: Cloud Instance Metadata API",
-		"executors": ["powershell"],
-		"supported_platforms": ["azure-ad", "iaas:azure"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1546.005",
-		"display_name": "Event Triggered Execution: Trap",
-		"executors": ["sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1083",
-		"display_name": "File and Directory Discovery",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1021.003",
-		"display_name": "Remote Services: Distributed Component Object Model",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["lateral-movement"]
-	},
-	{
-		"attack_technique": "T1041",
-		"display_name": "Exfiltration Over C2 Channel",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["exfiltration"]
-	},
-	{
-		"attack_technique": "T1021.004",
-		"display_name": "Remote Services: SSH",
-		"executors": ["powershell"],
-		"supported_platforms": ["linux"],
-		"phases": ["lateral-movement"]
-	},
-	{
-		"attack_technique": "T1046",
-		"display_name": "Network Service Discovery",
-		"executors": ["bash", "powershell", "sh"],
-		"supported_platforms": ["containers", "linux", "macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1610",
-		"display_name": "Deploy a container",
-		"executors": ["bash"],
-		"supported_platforms": ["containers"],
-		"phases": ["defense-evasion", "execution"]
-	},
-	{
-		"attack_technique": "T1482",
-		"display_name": "Domain Trust Discovery",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1074.001",
-		"display_name": "Data Staged: Local Data Staging",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1220",
-		"display_name": "XSL Script Processing",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1012",
-		"display_name": "Query Registry",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1550.003",
-		"display_name": "Use Alternate Authentication Material: Pass the Ticket",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "lateral-movement"]
-	},
-	{
-		"attack_technique": "T1485",
-		"display_name": "Data Destruction",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["iaas:gcp", "linux", "macos", "windows"],
-		"phases": ["impact"]
-	},
-	{
-		"attack_technique": "T1218",
-		"display_name": "Signed Binary Proxy Execution",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1547.005",
-		"display_name": "Boot or Logon Autostart Execution: Security Support Provider",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1553.005",
-		"display_name": "Subvert Trust Controls: Mark-of-the-Web Bypass",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1037.002",
-		"display_name": "Boot or Logon Initialization Scripts: Logon Script (Mac)",
-		"executors": ["manual"],
-		"supported_platforms": ["macos"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1114.001",
-		"display_name": "Email Collection: Local Email Collection",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1216",
-		"display_name": "Signed Script Proxy Execution",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1037.005",
-		"display_name": "Boot or Logon Initialization Scripts: Startup Items",
+		"attack_technique": "T1059.002",
+		"display_name": "Command and Scripting Interpreter: AppleScript",
 		"executors": ["sh"],
 		"supported_platforms": ["macos"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1547.002",
-		"display_name": "Authentication Package",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1021.005",
-		"display_name": "Remote Services:VNC",
-		"executors": ["sh"],
-		"supported_platforms": ["macos"],
-		"phases": ["lateral-movement"]
-	},
-	{
-		"attack_technique": "T1047",
-		"display_name": "Windows Management Instrumentation",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
 		"phases": ["execution"]
 	},
 	{
@@ -939,59 +496,59 @@
 		"phases": ["privilege-escalation"]
 	},
 	{
-		"attack_technique": "T1021.002",
-		"display_name": "Remote Services: SMB/Windows Admin Shares",
+		"attack_technique": "T1548.001",
+		"display_name": "Abuse Elevation Control Mechanism: Setuid and Setgid",
+		"executors": ["sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1574.006",
+		"display_name": "Hijack Execution Flow: LD_PRELOAD",
+		"executors": ["bash"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1550.003",
+		"display_name": "Use Alternate Authentication Material: Pass the Ticket",
 		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
-		"phases": ["lateral-movement"]
+		"phases": ["defense-evasion", "lateral-movement"]
 	},
 	{
-		"attack_technique": "T1040",
-		"display_name": "Network Sniffing",
-		"executors": ["bash", "command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["credential-access", "discovery"]
-	},
-	{
-		"attack_technique": "T1552.004",
-		"display_name": "Unsecured Credentials: Private Keys",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1546.004",
-		"display_name": "Event Triggered Execution: .bash_profile .bashrc and .shrc",
-		"executors": ["bash", "sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1036.003",
-		"display_name": "Masquerading: Rename System Utilities",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "windows"],
+		"attack_technique": "T1127",
+		"display_name": "Trusted Developer Utilities Proxy Execution",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1049",
-		"display_name": "System Network Connections Discovery",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["discovery"]
+		"attack_technique": "T1221",
+		"display_name": "Template Injection",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1082",
-		"display_name": "System Information Discovery",
-		"executors": ["bash", "command_prompt", "powershell", "sh"],
-		"supported_platforms": ["azure-ad", "linux", "macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1620",
-		"display_name": "Reflective Code Loading",
+		"attack_technique": "T1134.001",
+		"display_name": "Access Token Manipulation: Token Impersonation/Theft",
 		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1204.002",
+		"display_name": "User Execution: Malicious File",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1612",
+		"display_name": "Build Image on Host",
+		"executors": ["sh"],
+		"supported_platforms": ["containers"],
 		"phases": ["defense-evasion"]
 	},
 	{
@@ -1002,611 +559,39 @@
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1546.003",
-		"display_name": "Event Triggered Execution: Windows Management Instrumentation Event Subscription",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1552.003",
-		"display_name": "Unsecured Credentials: Bash History",
-		"executors": ["sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1217",
-		"display_name": "Browser Bookmark Discovery",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1553.003",
-		"display_name": "Subvert Trust Controls: SIP and Trust Provider Hijacking",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1547.003",
-		"display_name": "Time Providers",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1037.004",
-		"display_name": "Boot or Logon Initialization Scripts: Rc.common",
-		"executors": ["bash", "sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1547.004",
-		"display_name": "Boot or Logon Autostart Execution: Winlogon Helper DLL",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1553.004",
-		"display_name": "Subvert Trust Controls: Install Root Certificate",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1014",
-		"display_name": "Rootkit",
-		"executors": ["sh"],
-		"supported_platforms": ["linux"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1219",
-		"display_name": "Remote Access Software",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["command-and-control"]
-	},
-	{
-		"attack_technique": "T1221",
-		"display_name": "Template Injection",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1574.012",
-		"display_name": "Hijack Execution Flow: COR_PROFILER",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1222.002",
-		"display_name": "File and Directory Permissions Modification: FreeBSD, Linux and Mac File and Directory Permissions Modification",
-		"executors": ["bash", "sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1550.002",
-		"display_name": "Use Alternate Authentication Material: Pass the Hash",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "lateral-movement"]
-	},
-	{
-		"attack_technique": "T1057",
-		"display_name": "Process Discovery",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1132.001",
-		"display_name": "Data Encoding: Standard Encoding",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["command-and-control"]
-	},
-	{
-		"attack_technique": "T1562.004",
-		"display_name": "Impair Defenses: Disable or Modify System Firewall",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1546.014",
-		"display_name": "Event Triggered Execution: Emond",
-		"executors": ["sh"],
-		"supported_platforms": ["macos"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1204.003",
-		"display_name": "User Execution: Malicious Image",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1562.003",
-		"display_name": "Impair Defenses: HISTCONTROL",
-		"executors": ["bash", "manual", "sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1095",
-		"display_name": "Non-Application Layer Protocol",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["command-and-control"]
-	},
-	{
-		"attack_technique": "T1546.013",
-		"display_name": "Event Triggered Execution: PowerShell Profile",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1090.001",
-		"display_name": "Proxy: Internal Proxy",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["command-and-control"]
-	},
-	{
-		"attack_technique": "T1207",
-		"display_name": "Rogue Domain Controller",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1547.014",
-		"display_name": "Active Setup",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1053.006",
-		"display_name": "Scheduled Task/Job: Systemd Timers",
-		"executors": ["bash", "sh"],
-		"supported_platforms": ["linux"],
-		"phases": ["execution", "persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1127.001",
-		"display_name": "Trusted Developer Utilities Proxy Execution: MSBuild",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1560.002",
-		"display_name": "Archive Collected Data: Archive via Library",
-		"executors": ["sh"],
-		"supported_platforms": ["linux"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1574.002",
-		"display_name": "Hijack Execution Flow: DLL Side-Loading",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1548.002",
-		"display_name": "Abuse Elevation Control Mechanism: Bypass User Account Control",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1003",
-		"display_name": "OS Credential Dumping",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1562.002",
-		"display_name": "Impair Defenses: Disable Windows Event Logging",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1204.002",
-		"display_name": "User Execution: Malicious File",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1609",
-		"display_name": "Kubernetes Exec Into Container",
-		"executors": ["bash"],
-		"supported_platforms": ["containers"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1546.012",
-		"display_name": "Event Triggered Execution: Image File Execution Options Injection",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1546.015",
-		"display_name": "Event Triggered Execution: Component Object Model Hijacking",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1078.001",
-		"display_name": "Valid Accounts: Default Accounts",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["macos", "windows"],
-		"phases": [
-			"defense-evasion",
-			"initial-access",
-			"persistence",
-			"privilege-escalation"
-		]
-	},
-	{
-		"attack_technique": "T1654",
-		"display_name": "Log Enumeration",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1548.003",
-		"display_name": "Abuse Elevation Control Mechanism: Sudo and Sudo Caching",
-		"executors": ["sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1087.001",
-		"display_name": "Account Discovery: Local Account",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1005",
-		"display_name": "Data from Local System",
-		"executors": ["bash", "powershell"],
-		"supported_platforms": ["linux", "windows"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1053.007",
-		"display_name": "Kubernetes Cronjob",
-		"executors": ["bash"],
-		"supported_platforms": ["containers"],
-		"phases": ["execution", "persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1547.015",
-		"display_name": "Boot or Logon Autostart Execution: Login Items",
-		"executors": ["bash", "powershell"],
-		"supported_platforms": ["macos", "windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1497.001",
-		"display_name": "Virtualization/Sandbox Evasion: System Checks",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["defense-evasion", "discovery"]
-	},
-	{
-		"attack_technique": "T1201",
-		"display_name": "Password Policy Discovery",
-		"executors": ["bash", "command_prompt", "powershell", "sh"],
-		"supported_platforms": ["iaas:aws", "linux", "macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1033",
-		"display_name": "System Owner/User Discovery",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1547.012",
-		"display_name": "Boot or Logon Autostart Execution: Print Processors",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1563.002",
-		"display_name": "Remote Service Session Hijacking: RDP Hijacking",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["lateral-movement"]
-	},
-	{
-		"attack_technique": "T1567.002",
-		"display_name": "Exfiltration Over Web Service: Exfiltration to Cloud Storage",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["exfiltration"]
-	},
-	{
-		"attack_technique": "T1003.005",
-		"display_name": "OS Credential Dumping: Cached Domain Credentials",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1134.001",
-		"display_name": "Access Token Manipulation: Token Impersonation/Theft",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1003.002",
-		"display_name": "OS Credential Dumping: Security Account Manager",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1564.004",
-		"display_name": "Hide Artifacts: NTFS File Attributes",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1558.004",
-		"display_name": "Steal or Forge Kerberos Tickets: AS-REP Roasting",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1518.001",
-		"display_name": "Software Discovery: Security Software Discovery",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1558.003",
-		"display_name": "Steal or Forge Kerberos Tickets: Kerberoasting",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1564.003",
-		"display_name": "Hide Artifacts: Hidden Window",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1055.001",
-		"display_name": "Process Injection: Dynamic-link Library Injection",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1069.001",
-		"display_name": "Permission Groups Discovery: Local Groups",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["containers", "linux", "macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1124",
-		"display_name": "System Time Discovery",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1547",
-		"display_name": "Boot or Logon Autostart Execution",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1123",
-		"display_name": "Audio Capture",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["macos", "windows"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1115",
-		"display_name": "Clipboard Data",
-		"executors": ["bash", "command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1571",
-		"display_name": "Non-Standard Port",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["command-and-control"]
-	},
-	{
-		"attack_technique": "T1112",
-		"display_name": "Modify Registry",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1564.002",
-		"display_name": "Hide Artifacts: Hidden Users",
-		"executors": ["command_prompt", "sh"],
-		"supported_platforms": ["macos", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1558.002",
-		"display_name": "Steal or Forge Kerberos Tickets: Silver Ticket",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1137.001",
-		"display_name": "Office Application Startup: Office Template Macros.",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence"]
-	},
-	{
-		"attack_technique": "T1176",
-		"display_name": "Browser Extensions",
-		"executors": ["manual", "powershell"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["persistence"]
-	},
-	{
-		"attack_technique": "T1484.001",
-		"display_name": "Domain Policy Modification: Group Policy Modification",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1137.006",
-		"display_name": "Office Application Startup: Add-ins",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence"]
-	},
-	{
-		"attack_technique": "T1606.002",
-		"display_name": "Forge Web Credentials: SAML token",
-		"executors": ["powershell"],
-		"supported_platforms": ["azure-ad"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1140",
-		"display_name": "Deobfuscate/Decode Files or Information",
-		"executors": ["bash", "command_prompt", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1003.003",
-		"display_name": "OS Credential Dumping: NTDS",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1003.004",
-		"display_name": "OS Credential Dumping: LSA Secrets",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1567.003",
-		"display_name": "Exfiltration Over Web Service: Exfiltration to Text Storage Sites",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["exfiltration"]
-	},
-	{
-		"attack_technique": "T1056.001",
-		"display_name": "Input Capture: Keylogging",
-		"executors": ["bash", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["collection", "credential-access"]
-	},
-	{
-		"attack_technique": "T1113",
-		"display_name": "Screen Capture",
-		"executors": ["bash", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1570",
-		"display_name": "Lateral Tool Transfer",
+		"attack_technique": "T1021.003",
+		"display_name": "Remote Services: Distributed Component Object Model",
 		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["lateral-movement"]
 	},
 	{
-		"attack_technique": "T1491.001",
-		"display_name": "Defacement: Internal Defacement",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["impact"]
-	},
-	{
-		"attack_technique": "T1546",
-		"display_name": "Event Triggered Execution",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1136.001",
-		"display_name": "Create Account: Local Account",
-		"executors": ["bash", "command_prompt", "powershell", "sh"],
+		"attack_technique": "T1049",
+		"display_name": "System Network Connections Discovery",
+		"executors": ["command_prompt", "powershell", "sh"],
 		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1036.003",
+		"display_name": "Masquerading: Rename System Utilities",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1018",
+		"display_name": "Remote System Discovery",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1505.005",
+		"display_name": "Server Software Component: Terminal Services DLL",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
 		"phases": ["persistence"]
-	},
-	{
-		"attack_technique": "T1125",
-		"display_name": "Video Capture",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1559.002",
-		"display_name": "Inter-Process Communication: Dynamic Data Exchange",
-		"executors": ["command_prompt", "manual"],
-		"supported_platforms": ["windows"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1218.007",
-		"display_name": "Signed Binary Proxy Execution: Msiexec",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1564",
-		"display_name": "Hide Artifacts",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
 	},
 	{
 		"attack_technique": "T1218.009",
@@ -1616,153 +601,6 @@
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1059.003",
-		"display_name": "Command and Scripting Interpreter: Windows Command Shell",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1552",
-		"display_name": "Unsecured Credentials",
-		"executors": ["sh"],
-		"supported_platforms": ["iaas:aws", "linux", "macos"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1555.001",
-		"display_name": "Credentials from Password Stores: Keychain",
-		"executors": ["sh"],
-		"supported_platforms": ["macos"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1569.001",
-		"display_name": "System Services: Launchctl",
-		"executors": ["bash"],
-		"supported_platforms": ["macos"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1555",
-		"display_name": "Credentials from Password Stores",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1059.004",
-		"display_name": "Command and Scripting Interpreter: Bash",
-		"executors": ["bash", "sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1071.004",
-		"display_name": "Application Layer Protocol: DNS",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["command-and-control"]
-	},
-	{
-		"attack_technique": "T1070.004",
-		"display_name": "Indicator Removal on Host: File Deletion",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1539",
-		"display_name": "Steal Web Session Cookie",
-		"executors": ["bash", "powershell"],
-		"supported_platforms": ["macos", "windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1070.003",
-		"display_name": "Indicator Removal on Host: Clear Command History",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1098.002",
-		"display_name": "Account Manipulation: Additional Email Delegate Permissions",
-		"executors": ["powershell"],
-		"supported_platforms": ["office-365"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1027.007",
-		"display_name": "Obfuscated Files or Information: Dynamic API Resolution",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1530",
-		"display_name": "Data from Cloud Storage Object",
-		"executors": ["powershell", "sh"],
-		"supported_platforms": ["iaas:aws", "iaas:azure"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1110.003",
-		"display_name": "Brute Force: Password Spraying",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["azure-ad", "iaas:aws", "windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1110.004",
-		"display_name": "Brute Force: Credential Stuffing",
-		"executors": ["bash", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1059.005",
-		"display_name": "Command and Scripting Interpreter: Visual Basic",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1055.015",
-		"display_name": "Process Injection: ListPlanting",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1059.002",
-		"display_name": "Command and Scripting Interpreter: AppleScript",
-		"executors": ["sh"],
-		"supported_platforms": ["macos"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1137",
-		"display_name": "Office Application Startup",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence"]
-	},
-	{
-		"attack_technique": "T1218.008",
-		"display_name": "Signed Binary Proxy Execution: Odbcconf",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1055.012",
-		"display_name": "Process Injection: Process Hollowing",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "privilege-escalation"]
-	},
-	{
 		"attack_technique": "T1218.001",
 		"display_name": "Signed Binary Proxy Execution: Compiled HTML File",
 		"executors": ["command_prompt", "powershell"],
@@ -1770,88 +608,79 @@
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1562",
-		"display_name": "Impair Defenses",
-		"executors": ["command_prompt", "sh"],
-		"supported_platforms": ["linux", "windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1106",
-		"display_name": "Native API",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["execution"]
-	},
-	{
-		"attack_technique": "T1027.001",
-		"display_name": "Obfuscated Files or Information: Binary Padding",
-		"executors": ["sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1098.004",
-		"display_name": "SSH Authorized Keys",
-		"executors": ["sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1098.003",
-		"display_name": "Account Manipulation: Additional Cloud Roles",
-		"executors": ["powershell"],
-		"supported_platforms": ["azure-ad"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1027.006",
-		"display_name": "HTML Smuggling",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1543.001",
-		"display_name": "Create or Modify System Process: Launch Agent",
+		"attack_technique": "T1053.007",
+		"display_name": "Kubernetes Cronjob",
 		"executors": ["bash"],
+		"supported_platforms": ["containers"],
+		"phases": ["execution", "persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1037.002",
+		"display_name": "Boot or Logon Initialization Scripts: Logon Script (Mac)",
+		"executors": ["manual"],
 		"supported_platforms": ["macos"],
 		"phases": ["persistence", "privilege-escalation"]
 	},
 	{
-		"attack_technique": "T1557.001",
-		"display_name": "Adversary-in-the-Middle: LLMNR/NBT-NS Poisoning and SMB Relay",
+		"attack_technique": "T1137.006",
+		"display_name": "Office Application Startup: Add-ins",
 		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
-		"phases": ["collection", "credential-access"]
+		"phases": ["persistence"]
 	},
 	{
-		"attack_technique": "T1531",
-		"display_name": "Account Access Removal",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["azure-ad", "linux", "macos", "windows"],
-		"phases": ["impact"]
+		"attack_technique": "T1560.001",
+		"display_name": "Archive Collected Data: Archive via Utility",
+		"executors": ["bash", "command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["collection"]
 	},
 	{
-		"attack_technique": "T1110.002",
-		"display_name": "Brute Force: Password Cracking",
-		"executors": ["command_prompt"],
+		"attack_technique": "T1036",
+		"display_name": "Masquerading",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1003.006",
+		"display_name": "OS Credential Dumping: DCSync",
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["credential-access"]
 	},
 	{
-		"attack_technique": "T1070.002",
-		"display_name": "Indicator Removal on Host: Clear FreeBSD, Linux or Mac System Logs",
-		"executors": ["bash", "sh"],
-		"supported_platforms": ["linux", "macos"],
-		"phases": ["defense-evasion"]
+		"attack_technique": "T1078.004",
+		"display_name": "Valid Accounts: Cloud Accounts",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["google-workspace", "iaas:azure", "iaas:gcp"],
+		"phases": [
+			"defense-evasion",
+			"initial-access",
+			"persistence",
+			"privilege-escalation"
+		]
 	},
 	{
-		"attack_technique": "T1197",
-		"display_name": "BITS Jobs",
+		"attack_technique": "T1021.006",
+		"display_name": "Remote Services: Windows Remote Management",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["lateral-movement"]
+	},
+	{
+		"attack_technique": "T1137.004",
+		"display_name": "Office Application Startup: Outlook Home Page",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence"]
+	},
+	{
+		"attack_technique": "T1112",
+		"display_name": "Modify Registry",
 		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "persistence"]
+		"phases": ["defense-evasion"]
 	},
 	{
 		"attack_technique": "T1070.005",
@@ -1861,32 +690,88 @@
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1016",
-		"display_name": "System Network Configuration Discovery",
-		"executors": ["bash", "command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
+		"attack_technique": "T1003.001",
+		"display_name": "OS Credential Dumping: LSASS Memory",
+		"executors": ["command_prompt", "manual", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1133",
+		"display_name": "External Remote Services",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["initial-access", "persistence"]
+	},
+	{
+		"attack_technique": "T1219",
+		"display_name": "Remote Access Software",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["command-and-control"]
+	},
+	{
+		"attack_technique": "T1546.014",
+		"display_name": "Event Triggered Execution: Emond",
+		"executors": ["sh"],
+		"supported_platforms": ["macos"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1505.004",
+		"display_name": "IIS Components",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence"]
+	},
+	{
+		"attack_technique": "T1574.001",
+		"display_name": "Hijack Execution Flow: DLL Search Order Hijacking",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1654",
+		"display_name": "Log Enumeration",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
 		"phases": ["discovery"]
 	},
 	{
-		"attack_technique": "T1486",
-		"display_name": "Data Encrypted for Impact",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["impact"]
+		"attack_technique": "T1072",
+		"display_name": "Software Deployment Tools",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution", "lateral-movement"]
 	},
 	{
-		"attack_technique": "T1647",
-		"display_name": "Plist File Modification",
-		"executors": ["manual"],
-		"supported_platforms": ["macos"],
-		"phases": ["defense-evasion"]
+		"attack_technique": "T1021.001",
+		"display_name": "Remote Services: Remote Desktop Protocol",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["lateral-movement"]
 	},
 	{
-		"attack_technique": "T1048.002",
-		"display_name": "Exfiltration Over Alternative Protocol - Exfiltration Over Asymmetric Encrypted Non-C2 Protocol",
-		"executors": ["bash", "command_prompt"],
+		"attack_technique": "T1547.010",
+		"display_name": "Boot or Logon Autostart Execution: Port Monitors",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1548.002",
+		"display_name": "Abuse Elevation Control Mechanism: Bypass User Account Control",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1074.001",
+		"display_name": "Data Staged: Local Data Staging",
+		"executors": ["powershell", "sh"],
 		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["exfiltration"]
+		"phases": ["collection"]
 	},
 	{
 		"attack_technique": "T1547.008",
@@ -1903,65 +788,91 @@
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1553.001",
-		"display_name": "Subvert Trust Controls: Gatekeeper Bypass",
-		"executors": ["sh"],
-		"supported_platforms": ["macos"],
+		"attack_technique": "T1216",
+		"display_name": "Signed Script Proxy Execution",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1018",
-		"display_name": "Remote System Discovery",
-		"executors": ["command_prompt", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["discovery"]
+		"attack_technique": "T1053.006",
+		"display_name": "Scheduled Task/Job: Systemd Timers",
+		"executors": ["bash", "sh"],
+		"supported_platforms": ["linux"],
+		"phases": ["execution", "persistence", "privilege-escalation"]
 	},
 	{
-		"attack_technique": "T1547.001",
-		"display_name": "Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1020",
-		"display_name": "Automated Exfiltration",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["exfiltration"]
-	},
-	{
-		"attack_technique": "T1649",
-		"display_name": "Steal or Forge Authentication Certificates",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
-	},
-	{
-		"attack_technique": "T1547.006",
-		"display_name": "Boot or Logon Autostart Execution: Kernel Modules and Extensions",
-		"executors": ["bash", "powershell"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1037.001",
-		"display_name": "Boot or Logon Initialization Scripts: Logon Script (Windows)",
+		"attack_technique": "T1574.009",
+		"display_name": "Hijack Execution Flow: Path Interception by Unquoted Path",
 		"executors": ["command_prompt"],
 		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1562.003",
+		"display_name": "Impair Defenses: HISTCONTROL",
+		"executors": ["bash", "manual", "sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1543.004",
+		"display_name": "Create or Modify System Process: Launch Daemon",
+		"executors": ["bash"],
+		"supported_platforms": ["macos"],
 		"phases": ["persistence", "privilege-escalation"]
 	},
 	{
-		"attack_technique": "T1552.006",
-		"display_name": "Unsecured Credentials: Group Policy Preferences",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["credential-access"]
+		"attack_technique": "T1078.001",
+		"display_name": "Valid Accounts: Default Accounts",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["macos", "windows"],
+		"phases": [
+			"defense-evasion",
+			"initial-access",
+			"persistence",
+			"privilege-escalation"
+		]
 	},
 	{
-		"attack_technique": "T1546.001",
-		"display_name": "Event Triggered Execution: Change Default File Association",
+		"attack_technique": "T1055",
+		"display_name": "Process Injection",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1055.011",
+		"display_name": "Process Injection: Extra Window Memory Injection",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1125",
+		"display_name": "Video Capture",
 		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["collection"]
+	},
+	{
+		"attack_technique": "T1546",
+		"display_name": "Event Triggered Execution",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1090.001",
+		"display_name": "Proxy: Internal Proxy",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["command-and-control"]
+	},
+	{
+		"attack_technique": "T1547.014",
+		"display_name": "Active Setup",
+		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["persistence", "privilege-escalation"]
 	},
@@ -1973,11 +884,533 @@
 		"phases": ["credential-access"]
 	},
 	{
-		"attack_technique": "T1036.006",
-		"display_name": "Masquerading: Space after Filename",
-		"executors": ["manual", "sh"],
+		"attack_technique": "T1059.001",
+		"display_name": "Command and Scripting Interpreter: PowerShell",
+		"executors": ["command_prompt", "manual", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1547.003",
+		"display_name": "Time Providers",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1129",
+		"display_name": "Server Software Component",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1087.001",
+		"display_name": "Account Discovery: Local Account",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1552.007",
+		"display_name": "Kubernetes List Secrets",
+		"executors": ["bash", "sh"],
+		"supported_platforms": ["containers", "linux"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1037.005",
+		"display_name": "Boot or Logon Initialization Scripts: Startup Items",
+		"executors": ["sh"],
+		"supported_platforms": ["macos"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1548.003",
+		"display_name": "Abuse Elevation Control Mechanism: Sudo and Sudo Caching",
+		"executors": ["sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1558.004",
+		"display_name": "Steal or Forge Kerberos Tickets: AS-REP Roasting",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1613",
+		"display_name": "Container and Resource Discovery",
+		"executors": ["sh"],
+		"supported_platforms": ["containers"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1518.001",
+		"display_name": "Software Discovery: Security Software Discovery",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1021.005",
+		"display_name": "Remote Services:VNC",
+		"executors": ["sh"],
+		"supported_platforms": ["macos"],
+		"phases": ["lateral-movement"]
+	},
+	{
+		"attack_technique": "T1547.005",
+		"display_name": "Boot or Logon Autostart Execution: Security Support Provider",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1053.002",
+		"display_name": "Scheduled Task/Job: At",
+		"executors": ["command_prompt", "sh"],
+		"supported_platforms": ["linux", "windows"],
+		"phases": ["execution", "persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1010",
+		"display_name": "Application Window Discovery",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1083",
+		"display_name": "File and Directory Discovery",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1098.001",
+		"display_name": "Account Manipulation: Additional Cloud Credentials",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["azure-ad", "iaas:aws"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1552.002",
+		"display_name": "Unsecured Credentials: Credentials in Registry",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1053.003",
+		"display_name": "Scheduled Task/Job: Cron",
+		"executors": ["bash", "sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["execution", "persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1546.013",
+		"display_name": "Event Triggered Execution: PowerShell Profile",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1553.005",
+		"display_name": "Subvert Trust Controls: Mark-of-the-Web Bypass",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1547.007",
+		"display_name": "Boot or Logon Autostart Execution: Re-opened Applications",
+		"executors": ["sh"],
+		"supported_platforms": ["macos"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1620",
+		"display_name": "Reflective Code Loading",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1482",
+		"display_name": "Domain Trust Discovery",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1127.001",
+		"display_name": "Trusted Developer Utilities Proxy Execution: MSBuild",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1027.001",
+		"display_name": "Obfuscated Files or Information: Binary Padding",
+		"executors": ["sh"],
 		"supported_platforms": ["linux", "macos"],
 		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1553.001",
+		"display_name": "Subvert Trust Controls: Gatekeeper Bypass",
+		"executors": ["sh"],
+		"supported_platforms": ["macos"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1055.015",
+		"display_name": "Process Injection: ListPlanting",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1204.003",
+		"display_name": "User Execution: Malicious Image",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1020",
+		"display_name": "Automated Exfiltration",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["exfiltration"]
+	},
+	{
+		"attack_technique": "T1070.008",
+		"display_name": "Email Collection: Mailbox Manipulation",
+		"executors": ["bash", "powershell"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1543.001",
+		"display_name": "Create or Modify System Process: Launch Agent",
+		"executors": ["bash"],
+		"supported_platforms": ["macos"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1562.009",
+		"display_name": "Impair Defenses: Safe Boot Mode",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1069.002",
+		"display_name": "Permission Groups Discovery: Domain Groups",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1098",
+		"display_name": "Account Manipulation",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": [
+			"azure-ad",
+			"iaas:aws",
+			"iaas:azure",
+			"iaas:gcp",
+			"windows"
+		],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1546.015",
+		"display_name": "Event Triggered Execution: Component Object Model Hijacking",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1014",
+		"display_name": "Rootkit",
+		"executors": ["sh"],
+		"supported_platforms": ["linux"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1003.007",
+		"display_name": "OS Credential Dumping: Proc Filesystem",
+		"executors": ["bash", "sh"],
+		"supported_platforms": ["linux"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1562.006",
+		"display_name": "Impair Defenses: Indicator Blocking",
+		"executors": ["bash", "command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1552.005",
+		"display_name": "Unsecured Credentials: Cloud Instance Metadata API",
+		"executors": ["powershell"],
+		"supported_platforms": ["azure-ad", "iaas:azure"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1078.003",
+		"display_name": "Valid Accounts: Local Accounts",
+		"executors": ["bash", "command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": [
+			"defense-evasion",
+			"initial-access",
+			"persistence",
+			"privilege-escalation"
+		]
+	},
+	{
+		"attack_technique": "T1106",
+		"display_name": "Native API",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1485",
+		"display_name": "Data Destruction",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["iaas:gcp", "linux", "macos", "windows"],
+		"phases": ["impact"]
+	},
+	{
+		"attack_technique": "T1090.003",
+		"display_name": "Proxy: Multi-hop Proxy",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["command-and-control"]
+	},
+	{
+		"attack_technique": "T1006",
+		"display_name": "Direct Volume Access",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1558.003",
+		"display_name": "Steal or Forge Kerberos Tickets: Kerberoasting",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1529",
+		"display_name": "System Shutdown/Reboot",
+		"executors": ["bash", "command_prompt", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["impact"]
+	},
+	{
+		"attack_technique": "T1218.002",
+		"display_name": "Signed Binary Proxy Execution: Control Panel",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1176",
+		"display_name": "Browser Extensions",
+		"executors": ["manual", "powershell"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["persistence"]
+	},
+	{
+		"attack_technique": "T1123",
+		"display_name": "Audio Capture",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["macos", "windows"],
+		"phases": ["collection"]
+	},
+	{
+		"attack_technique": "T1218.008",
+		"display_name": "Signed Binary Proxy Execution: Odbcconf",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1021.002",
+		"display_name": "Remote Services: SMB/Windows Admin Shares",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["lateral-movement"]
+	},
+	{
+		"attack_technique": "T1573",
+		"display_name": "Encrypted Channel",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["command-and-control"]
+	},
+	{
+		"attack_technique": "T1558.002",
+		"display_name": "Steal or Forge Kerberos Tickets: Silver Ticket",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1027.007",
+		"display_name": "Obfuscated Files or Information: Dynamic API Resolution",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1562.002",
+		"display_name": "Impair Defenses: Disable Windows Event Logging",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1592.001",
+		"display_name": "Gather Victim Host Information: Hardware",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["reconnaissance"]
+	},
+	{
+		"attack_technique": "T1003",
+		"display_name": "OS Credential Dumping",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1543.003",
+		"display_name": "Create or Modify System Process: Windows Service",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1070.003",
+		"display_name": "Indicator Removal on Host: Clear Command History",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1552.003",
+		"display_name": "Unsecured Credentials: Bash History",
+		"executors": ["sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1098.004",
+		"display_name": "SSH Authorized Keys",
+		"executors": ["sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1491.001",
+		"display_name": "Defacement: Internal Defacement",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["impact"]
+	},
+	{
+		"attack_technique": "T1505.003",
+		"display_name": "Server Software Component: Web Shell",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence"]
+	},
+	{
+		"attack_technique": "T1110.002",
+		"display_name": "Brute Force: Password Cracking",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1105",
+		"display_name": "Ingress Tool Transfer",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["command-and-control"]
+	},
+	{
+		"attack_technique": "T1012",
+		"display_name": "Query Registry",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1564.001",
+		"display_name": "Hide Artifacts: Hidden Files and Directories",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1003.005",
+		"display_name": "OS Credential Dumping: Cached Domain Credentials",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1134.004",
+		"display_name": "Access Token Manipulation: Parent PID Spoofing",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1124",
+		"display_name": "System Time Discovery",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1564",
+		"display_name": "Hide Artifacts",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1484.002",
+		"display_name": "Domain Trust Modification",
+		"executors": ["powershell"],
+		"supported_platforms": ["azure-ad"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1069.001",
+		"display_name": "Permission Groups Discovery: Local Groups",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["containers", "linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1095",
+		"display_name": "Non-Application Layer Protocol",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["command-and-control"]
 	},
 	{
 		"attack_technique": "T1546.008",
@@ -1987,17 +1420,164 @@
 		"phases": ["persistence", "privilege-escalation"]
 	},
 	{
-		"attack_technique": "T1505.005",
-		"display_name": "Server Software Component: Terminal Services DLL",
+		"attack_technique": "T1566.001",
+		"display_name": "Phishing: Spearphishing Attachment",
 		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
-		"phases": ["persistence"]
+		"phases": ["initial-access"]
 	},
 	{
-		"attack_technique": "T1613",
-		"display_name": "Container and Resource Discovery",
+		"attack_technique": "T1055.012",
+		"display_name": "Process Injection: Process Hollowing",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1070",
+		"display_name": "Indicator Removal on Host",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1555.003",
+		"display_name": "Credentials from Password Stores: Credentials from Web Browsers",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1546.003",
+		"display_name": "Event Triggered Execution: Windows Management Instrumentation Event Subscription",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1518",
+		"display_name": "Software Discovery",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1571",
+		"display_name": "Non-Standard Port",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["command-and-control"]
+	},
+	{
+		"attack_technique": "T1555.004",
+		"display_name": "Credentials from Password Stores: Windows Credential Manager",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1115",
+		"display_name": "Clipboard Data",
+		"executors": ["bash", "command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["collection"]
+	},
+	{
+		"attack_technique": "T1574.008",
+		"display_name": "Hijack Execution Flow: Path Interception by Search Order Hijacking",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1567.003",
+		"display_name": "Exfiltration Over Web Service: Exfiltration to Text Storage Sites",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["exfiltration"]
+	},
+	{
+		"attack_technique": "T1218",
+		"display_name": "Signed Binary Proxy Execution",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1114.001",
+		"display_name": "Email Collection: Local Email Collection",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["collection"]
+	},
+	{
+		"attack_technique": "T1021.004",
+		"display_name": "Remote Services: SSH",
+		"executors": ["powershell"],
+		"supported_platforms": ["linux"],
+		"phases": ["lateral-movement"]
+	},
+	{
+		"attack_technique": "T1486",
+		"display_name": "Data Encrypted for Impact",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["impact"]
+	},
+	{
+		"attack_technique": "T1496",
+		"display_name": "Resource Hijacking",
 		"executors": ["sh"],
-		"supported_platforms": ["containers"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["impact"]
+	},
+	{
+		"attack_technique": "T1003.003",
+		"display_name": "OS Credential Dumping: NTDS",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1547.001",
+		"display_name": "Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1562",
+		"display_name": "Impair Defenses",
+		"executors": ["command_prompt", "sh"],
+		"supported_platforms": ["linux", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1564.003",
+		"display_name": "Hide Artifacts: Hidden Window",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1216.001",
+		"display_name": "Signed Script Proxy Execution: Pubprn",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1619",
+		"display_name": "Cloud Storage Object Discovery",
+		"executors": ["sh"],
+		"supported_platforms": ["iaas:aws"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1007",
+		"display_name": "System Service Discovery",
+		"executors": ["bash", "command_prompt"],
+		"supported_platforms": ["linux", "windows"],
 		"phases": ["discovery"]
 	},
 	{
@@ -2008,102 +1588,25 @@
 		"phases": ["persistence"]
 	},
 	{
-		"attack_technique": "T1547.007",
-		"display_name": "Boot or Logon Autostart Execution: Re-opened Applications",
-		"executors": ["sh"],
-		"supported_platforms": ["macos"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1114.003",
-		"display_name": "Email Collection: Email Forwarding Rule",
-		"executors": ["powershell"],
-		"supported_platforms": ["office-365"],
-		"phases": ["collection"]
-	},
-	{
-		"attack_technique": "T1489",
-		"display_name": "Service Stop",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["impact"]
-	},
-	{
-		"attack_technique": "T1010",
-		"display_name": "Application Window Discovery",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1048.003",
-		"display_name": "Exfiltration Over Alternative Protocol: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol",
-		"executors": ["manual", "powershell", "sh"],
-		"supported_platforms": ["linux", "macos", "windows"],
-		"phases": ["exfiltration"]
-	},
-	{
-		"attack_technique": "T1547.009",
-		"display_name": "Boot or Logon Autostart Execution: Shortcut Modification",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1574.011",
-		"display_name": "Hijack Execution Flow: Services Registry Permissions Weakness",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
-	},
-	{
-		"attack_technique": "T1222.001",
-		"display_name": "File and Directory Permissions Modification: Windows File and Directory Permissions Modification",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["defense-evasion"]
-	},
-	{
-		"attack_technique": "T1021.001",
-		"display_name": "Remote Services: Remote Desktop Protocol",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["lateral-movement"]
-	},
-	{
-		"attack_technique": "T1505.003",
-		"display_name": "Server Software Component: Web Shell",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
-		"phases": ["persistence"]
-	},
-	{
-		"attack_technique": "T1615",
-		"display_name": "Group Policy Discovery",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["discovery"]
-	},
-	{
-		"attack_technique": "T1021.006",
-		"display_name": "Remote Services: Windows Remote Management",
+		"attack_technique": "T1570",
+		"display_name": "Lateral Tool Transfer",
 		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["lateral-movement"]
 	},
 	{
-		"attack_technique": "T1592.001",
-		"display_name": "Gather Victim Host Information: Hardware",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
-		"phases": ["reconnaissance"]
+		"attack_technique": "T1087.002",
+		"display_name": "Account Discovery: Domain Account",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "windows"],
+		"phases": ["discovery"]
 	},
 	{
-		"attack_technique": "T1612",
-		"display_name": "Build Image on Host",
-		"executors": ["sh"],
-		"supported_platforms": ["containers"],
-		"phases": ["defense-evasion"]
+		"attack_technique": "T1201",
+		"display_name": "Password Policy Discovery",
+		"executors": ["bash", "command_prompt", "powershell", "sh"],
+		"supported_platforms": ["iaas:aws", "linux", "macos", "windows"],
+		"phases": ["discovery"]
 	},
 	{
 		"attack_technique": "T1546.009",
@@ -2113,18 +1616,319 @@
 		"phases": ["persistence", "privilege-escalation"]
 	},
 	{
-		"attack_technique": "T1505.004",
-		"display_name": "IIS Components",
+		"attack_technique": "T1071.001",
+		"display_name": "Application Layer Protocol: Web Protocols",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["command-and-control"]
+	},
+	{
+		"attack_technique": "T1220",
+		"display_name": "XSL Script Processing",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1059.003",
+		"display_name": "Command and Scripting Interpreter: Windows Command Shell",
 		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1562.008",
+		"display_name": "Impair Defenses: Disable Cloud Logs",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": [
+			"iaas:aws",
+			"iaas:azure",
+			"iaas:gcp",
+			"linux",
+			"macos",
+			"office-365"
+		],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1484.001",
+		"display_name": "Domain Policy Modification: Group Policy Modification",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1572",
+		"display_name": "Protocol Tunneling",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["command-and-control"]
+	},
+	{
+		"attack_technique": "T1134.005",
+		"display_name": "Access Token Manipulation: SID-History Injection",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1033",
+		"display_name": "System Owner/User Discovery",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1036.005",
+		"display_name": "Masquerading: Match Legitimate Name or Location",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1614.001",
+		"display_name": "System Location Discovery: System Language Discovery",
+		"executors": ["command_prompt", "sh"],
+		"supported_platforms": ["linux", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1047",
+		"display_name": "Windows Management Instrumentation",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1552",
+		"display_name": "Unsecured Credentials",
+		"executors": ["sh"],
+		"supported_platforms": ["iaas:aws", "linux", "macos"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1222.001",
+		"display_name": "File and Directory Permissions Modification: Windows File and Directory Permissions Modification",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1048.003",
+		"display_name": "Exfiltration Over Alternative Protocol: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol",
+		"executors": ["manual", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["exfiltration"]
+	},
+	{
+		"attack_technique": "T1218.003",
+		"display_name": "Signed Binary Proxy Execution: CMSTP",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1490",
+		"display_name": "Inhibit System Recovery",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["impact"]
+	},
+	{
+		"attack_technique": "T1552.006",
+		"display_name": "Unsecured Credentials: Group Policy Preferences",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1564.002",
+		"display_name": "Hide Artifacts: Hidden Users",
+		"executors": ["command_prompt", "sh"],
+		"supported_platforms": ["macos", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1187",
+		"display_name": "Forced Authentication",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1005",
+		"display_name": "Data from Local System",
+		"executors": ["bash", "powershell"],
+		"supported_platforms": ["linux", "windows"],
+		"phases": ["collection"]
+	},
+	{
+		"attack_technique": "T1110.004",
+		"display_name": "Brute Force: Credential Stuffing",
+		"executors": ["bash", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1606.002",
+		"display_name": "Forge Web Credentials: SAML token",
+		"executors": ["powershell"],
+		"supported_platforms": ["azure-ad"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1580",
+		"display_name": "Cloud Infrastructure Discovery",
+		"executors": ["sh"],
+		"supported_platforms": ["iaas:aws", "linux", "macos"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1036.006",
+		"display_name": "Masquerading: Space after Filename",
+		"executors": ["manual", "sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1610",
+		"display_name": "Deploy a container",
+		"executors": ["bash"],
+		"supported_platforms": ["containers"],
+		"phases": ["defense-evasion", "execution"]
+	},
+	{
+		"attack_technique": "T1056.004",
+		"display_name": "Input Capture: Credential API Hooking",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["collection", "credential-access"]
+	},
+	{
+		"attack_technique": "T1547.004",
+		"display_name": "Boot or Logon Autostart Execution: Winlogon Helper DLL",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1070.004",
+		"display_name": "Indicator Removal on Host: File Deletion",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1489",
+		"display_name": "Service Stop",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["impact"]
+	},
+	{
+		"attack_technique": "T1137.001",
+		"display_name": "Office Application Startup: Office Template Macros.",
+		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["persistence"]
 	},
 	{
-		"attack_technique": "T1072",
-		"display_name": "Software Deployment Tools",
-		"executors": ["command_prompt"],
+		"attack_technique": "T1557.001",
+		"display_name": "Adversary-in-the-Middle: LLMNR/NBT-NS Poisoning and SMB Relay",
+		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
-		"phases": ["execution", "lateral-movement"]
+		"phases": ["collection", "credential-access"]
+	},
+	{
+		"attack_technique": "T1048.002",
+		"display_name": "Exfiltration Over Alternative Protocol - Exfiltration Over Asymmetric Encrypted Non-C2 Protocol",
+		"executors": ["bash", "command_prompt"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["exfiltration"]
+	},
+	{
+		"attack_technique": "T1539",
+		"display_name": "Steal Web Session Cookie",
+		"executors": ["bash", "powershell"],
+		"supported_platforms": ["macos", "windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1056.001",
+		"display_name": "Input Capture: Keylogging",
+		"executors": ["bash", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["collection", "credential-access"]
+	},
+	{
+		"attack_technique": "T1040",
+		"display_name": "Network Sniffing",
+		"executors": ["bash", "command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["credential-access", "discovery"]
+	},
+	{
+		"attack_technique": "T1041",
+		"display_name": "Exfiltration Over C2 Channel",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["exfiltration"]
+	},
+	{
+		"attack_technique": "T1197",
+		"display_name": "BITS Jobs",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "persistence"]
+	},
+	{
+		"attack_technique": "T1027.004",
+		"display_name": "Obfuscated Files or Information: Compile After Delivery",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1113",
+		"display_name": "Screen Capture",
+		"executors": ["bash", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["collection"]
+	},
+	{
+		"attack_technique": "T1574.011",
+		"display_name": "Hijack Execution Flow: Services Registry Permissions Weakness",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1647",
+		"display_name": "Plist File Modification",
+		"executors": ["manual"],
+		"supported_platforms": ["macos"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1564.006",
+		"display_name": "Run Virtual Instance",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1574.012",
+		"display_name": "Hijack Execution Flow: COR_PROFILER",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1547.006",
+		"display_name": "Boot or Logon Autostart Execution: Kernel Modules and Extensions",
+		"executors": ["bash", "powershell"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["persistence", "privilege-escalation"]
 	},
 	{
 		"attack_technique": "T1562.010",
@@ -2134,17 +1938,213 @@
 		"phases": ["defense-evasion"]
 	},
 	{
-		"attack_technique": "T1552.007",
-		"display_name": "Kubernetes List Secrets",
-		"executors": ["bash", "sh"],
-		"supported_platforms": ["containers", "linux"],
+		"attack_technique": "T1055.003",
+		"display_name": "Thread Execution Hijacking",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1217",
+		"display_name": "Browser Bookmark Discovery",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1546.001",
+		"display_name": "Event Triggered Execution: Change Default File Association",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1059.006",
+		"display_name": "Command and Scripting Interpreter: Python",
+		"executors": ["sh"],
+		"supported_platforms": ["linux"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1546.010",
+		"display_name": "Event Triggered Execution: AppInit DLLs",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1120",
+		"display_name": "Peripheral Device Discovery",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1555",
+		"display_name": "Credentials from Password Stores",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
 		"phases": ["credential-access"]
 	},
 	{
-		"attack_technique": "T1546.007",
-		"display_name": "Event Triggered Execution: Netsh Helper DLL",
+		"attack_technique": "T1110.001",
+		"display_name": "Brute Force: Password Guessing",
+		"executors": ["bash", "command_prompt", "powershell"],
+		"supported_platforms": ["azure-ad", "linux", "windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1132.001",
+		"display_name": "Data Encoding: Standard Encoding",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["command-and-control"]
+	},
+	{
+		"attack_technique": "T1218.011",
+		"display_name": "Signed Binary Proxy Execution: Rundll32",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1218.004",
+		"display_name": "Signed Binary Proxy Execution: InstallUtil",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1136.001",
+		"display_name": "Create Account: Local Account",
+		"executors": ["bash", "command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["persistence"]
+	},
+	{
+		"attack_technique": "T1609",
+		"display_name": "Kubernetes Exec Into Container",
+		"executors": ["bash"],
+		"supported_platforms": ["containers"],
+		"phases": ["execution"]
+	},
+	{
+		"attack_technique": "T1098.002",
+		"display_name": "Account Manipulation: Additional Email Delegate Permissions",
+		"executors": ["powershell"],
+		"supported_platforms": ["office-365"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1003.004",
+		"display_name": "OS Credential Dumping: LSA Secrets",
 		"executors": ["command_prompt"],
 		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1056.002",
+		"display_name": "Input Capture: GUI Input Capture",
+		"executors": ["bash", "powershell"],
+		"supported_platforms": ["macos", "windows"],
+		"phases": ["collection", "credential-access"]
+	},
+	{
+		"attack_technique": "T1546.004",
+		"display_name": "Event Triggered Execution: .bash_profile .bashrc and .shrc",
+		"executors": ["bash", "sh"],
+		"supported_platforms": ["linux", "macos"],
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1140",
+		"display_name": "Deobfuscate/Decode Files or Information",
+		"executors": ["bash", "command_prompt", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1135",
+		"display_name": "Network Share Discovery",
+		"executors": ["bash", "command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1119",
+		"display_name": "Automated Collection",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["collection"]
+	},
+	{
+		"attack_technique": "T1082",
+		"display_name": "System Information Discovery",
+		"executors": ["bash", "command_prompt", "powershell", "sh"],
+		"supported_platforms": ["azure-ad", "linux", "macos", "windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1564.004",
+		"display_name": "Hide Artifacts: NTFS File Attributes",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1615",
+		"display_name": "Group Policy Discovery",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["discovery"]
+	},
+	{
+		"attack_technique": "T1134.002",
+		"display_name": "Create Process with Token",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1649",
+		"display_name": "Steal or Forge Authentication Certificates",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1055.001",
+		"display_name": "Process Injection: Dynamic-link Library Injection",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "privilege-escalation"]
+	},
+	{
+		"attack_technique": "T1550.002",
+		"display_name": "Use Alternate Authentication Material: Pass the Hash",
+		"executors": ["command_prompt", "powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "lateral-movement"]
+	},
+	{
+		"attack_technique": "T1552.004",
+		"display_name": "Unsecured Credentials: Private Keys",
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1070.006",
+		"display_name": "Indicator Removal on Host: Timestomp",
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1543.002",
+		"display_name": "Create or Modify System Process: SysV/Systemd Service",
+		"executors": ["bash", "sh"],
+		"supported_platforms": ["linux"],
 		"phases": ["persistence", "privilege-escalation"]
 	}
 ]
