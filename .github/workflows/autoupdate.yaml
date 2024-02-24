@@ -1,8 +1,7 @@
 name: generate-atomics
 on:
-  pull_request:
   schedule:
-    - cron: '30 1 * * *'
+    - cron: '24 * * * *'
 jobs:
   generate-atomics:
     runs-on: ubuntu-latest
