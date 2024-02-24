@@ -1,15 +1,15 @@
 {
-  "*": {
-    "type": "page"
-  },
-  "index": {
-    "display": "hidden",
-    "theme": {
-      "sidebar": false,
-      "toc": true,
-      "layout": "raw"
-    }
-  },
-  "atomic-red-team": "Atomic Red Team",
-  "invoke-atomicredteam": "Invoke-Atomic"
+	"*": {
+		"type": "page"
+	},
+	"index": {
+		"display": "hidden",
+		"theme": {
+			"sidebar": false,
+			"toc": true,
+			"layout": "raw"
+		}
+	},
+	"atomic-red-team": "Atomic Red Team",
+	"invoke-atomicredteam": "Invoke-Atomic"
 }
