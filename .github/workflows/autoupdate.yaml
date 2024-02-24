@@ -1,0 +1,29 @@
+name: generate-atomics
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '30 1 * * *'
+jobs:
+  generate-counter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install poetry
+        run: pipx install poetry
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.12.1'
+          cache: 'poetry'
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
+      - name: Generate atomics
+        run: poetry run python bin/generate.py
+      - name: Run pre-commit
+        run: poetry run pre-commit run --all-files
+      - name: update github with new site
+        run: |
+          git config --global user.name 'cyberbuff'
+          git config --global user.email 'cyberbuff@users.noreply.github.com'
+          git commit -am "Automated update"
+          git push
