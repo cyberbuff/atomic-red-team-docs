@@ -2,6 +2,8 @@ name: generate-atomics
 on:
   schedule:
     - cron: '24 * * * *'
+permissions:
+  contents: write
 jobs:
   generate-atomics:
     runs-on: ubuntu-latest
