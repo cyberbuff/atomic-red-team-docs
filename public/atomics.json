@@ -212,8 +212,8 @@
 	{
 		"attack_technique": "T1030",
 		"display_name": "Data Transfer Size Limits",
-		"executors": ["sh"],
-		"supported_platforms": ["linux", "macos"],
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "macos", "windows"],
 		"phases": ["exfiltration"]
 	},
 	{
@@ -2143,7 +2143,7 @@
 	{
 		"attack_technique": "T1654",
 		"display_name": "Log Enumeration",
-		"executors": ["powershell"],
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["discovery"]
 	}
