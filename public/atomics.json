@@ -469,6 +469,13 @@
 		"phases": ["discovery"]
 	},
 	{
+		"attack_technique": "T1059",
+		"display_name": "Command and Scripting Interpreter",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["execution"]
+	},
+	{
 		"attack_technique": "T1059.001",
 		"display_name": "Command and Scripting Interpreter: PowerShell",
 		"executors": ["command_prompt", "manual", "powershell"],
@@ -586,6 +593,13 @@
 		"executors": ["bash", "powershell"],
 		"supported_platforms": ["linux", "macos", "windows"],
 		"phases": ["defense-evasion"]
+	},
+	{
+		"attack_technique": "T1071",
+		"display_name": "Application Layer Protocol",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["command-and-control"]
 	},
 	{
 		"attack_technique": "T1071.001",
@@ -835,7 +849,7 @@
 	{
 		"attack_technique": "T1120",
 		"display_name": "Peripheral Device Discovery",
-		"executors": ["powershell"],
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["discovery"]
 	},
