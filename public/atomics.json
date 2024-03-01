@@ -1358,6 +1358,13 @@
 		"phases": ["credential-access"]
 	},
 	{
+		"attack_technique": "T1542.001",
+		"display_name": "Pre-OS Boot: System Firmware",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "persistence"]
+	},
+	{
 		"attack_technique": "T1543.001",
 		"display_name": "Create or Modify System Process: Launch Agent",
 		"executors": ["bash"],
