@@ -1,12 +1,12 @@
-import React from "react";
+import { Analytics } from "@vercel/analytics/react";
+import Image from "next/image";
+import { useRouter } from "next/router";
 // @ts-ignore
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
-import { useRouter } from "next/router";
-import { Analytics } from "@vercel/analytics/react";
+import React from "react";
 import { Logo } from "./components/logo";
 import { Navigation } from "./components/navigation";
 import slackLogo from "./public/slack.svg";
-import Image from "next/image";
 
 const config: DocsThemeConfig = {
 	darkMode: false,

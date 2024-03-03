@@ -7,8 +7,8 @@ import {
 	EuiSpacer,
 } from "@elastic/eui";
 import "@elastic/eui/dist/eui_theme_dark.css";
-import { Card } from "../card";
 import Link from "next/link";
+import { Card } from "../card";
 
 export function App() {
 	const markdownContent = `

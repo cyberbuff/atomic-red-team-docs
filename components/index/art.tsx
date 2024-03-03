@@ -7,9 +7,9 @@ import {
 	EuiSpacer,
 } from "@elastic/eui";
 import "@elastic/eui/dist/eui_theme_dark.css";
+import Link from "next/link";
 import { AtomicsTable } from "../atomics";
 import { Card } from "../card";
-import Link from "next/link";
 
 export function App() {
 	return (
