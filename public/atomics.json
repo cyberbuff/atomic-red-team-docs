@@ -1,5 +1,12 @@
 [
 	{
+		"attack_technique": "T1001.002",
+		"display_name": "Data Obfuscation via Steganography",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["command-and-control"]
+	},
+	{
 		"attack_technique": "T1003",
 		"display_name": "OS Credential Dumping",
 		"executors": ["command_prompt", "powershell"],
