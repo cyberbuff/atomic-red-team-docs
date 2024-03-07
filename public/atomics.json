@@ -1863,7 +1863,7 @@
 	{
 		"attack_technique": "T1562.003",
 		"display_name": "Impair Defenses: Impair Command History Logging",
-		"executors": ["bash", "command_prompt", "manual", "sh"],
+		"executors": ["bash", "command_prompt", "manual", "powershell", "sh"],
 		"supported_platforms": ["linux", "macos", "windows"],
 		"phases": ["defense-evasion"]
 	},
