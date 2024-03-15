@@ -569,7 +569,7 @@
 	{
 		"attack_technique": "T1070.003",
 		"display_name": "Indicator Removal on Host: Clear Command History",
-		"executors": ["powershell", "sh"],
+		"executors": ["bash", "powershell", "sh"],
 		"supported_platforms": ["linux", "macos", "windows"],
 		"phases": ["defense-evasion"]
 	},
@@ -2073,7 +2073,7 @@
 	{
 		"attack_technique": "T1580",
 		"display_name": "Cloud Infrastructure Discovery",
-		"executors": ["sh"],
+		"executors": ["command_prompt", "sh"],
 		"supported_platforms": ["iaas:aws", "linux", "macos"],
 		"phases": ["discovery"]
 	},
