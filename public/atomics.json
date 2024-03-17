@@ -625,7 +625,7 @@
 	{
 		"attack_technique": "T1072",
 		"display_name": "Software Deployment Tools",
-		"executors": ["command_prompt"],
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["execution", "lateral-movement"]
 	},
@@ -1171,8 +1171,22 @@
 	{
 		"attack_technique": "T1218.011",
 		"display_name": "Signed Binary Proxy Execution: Rundll32",
-		"executors": ["command_prompt", "powershell"],
+		"name": "Rundll32 execute command via FileProtocolHandler",
+		"auto_generated_guid": "f3ad3c5b-1db1-45c1-81bf-d3370ebab6c8",
+		"description": "Test execution of a command using rundll32.exe and the FileProtocolHandler technique.\nUpon execution, calc.exe will be launched.\nThis technique is documented by Levan Abesadze - https://medium.com/@Wolverineisstillalive/system-binary-proxy-execution-rundll32-bypass-method-790871e1f2b7\n",
 		"supported_platforms": ["windows"],
+		"input_arguments": {
+			"command_to_execute": {
+				"description": "Command for rundll32.exe to execute",
+				"type": "string",
+				"default": "calc.exe"
+			}
+		},
+		"executor": {
+			"command": "rundll32.exe url.dll,FileProtocolHandler #{command_to_execute}\n",
+			"name": "command_prompt"
+		},
+		"executors": ["command_prompt", "powershell"],
 		"phases": ["defense-evasion"]
 	},
 	{
