@@ -2,8 +2,8 @@
 	{
 		"attack_technique": "T1001.002",
 		"display_name": "Data Obfuscation via Steganography",
-		"executors": ["powershell"],
-		"supported_platforms": ["windows"],
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["linux", "windows"],
 		"phases": ["command-and-control"]
 	},
 	{
