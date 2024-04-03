@@ -1255,8 +1255,8 @@
 	{
 		"attack_technique": "T1490",
 		"display_name": "Inhibit System Recovery",
-		"executors": ["command_prompt", "powershell"],
-		"supported_platforms": ["windows"],
+		"executors": ["command_prompt", "powershell", "sh"],
+		"supported_platforms": ["macos", "windows"],
 		"phases": ["impact"]
 	},
 	{
