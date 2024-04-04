@@ -833,6 +833,13 @@
 		"phases": ["collection"]
 	},
 	{
+		"attack_technique": "T1114.002",
+		"display_name": "Email Collection: Remote Email Collection",
+		"executors": ["powershell"],
+		"supported_platforms": ["office-365"],
+		"phases": ["collection"]
+	},
+	{
 		"attack_technique": "T1114.003",
 		"display_name": "Email Collection: Email Forwarding Rule",
 		"executors": ["powershell"],
