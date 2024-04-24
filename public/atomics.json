@@ -2162,6 +2162,13 @@
 		"phases": ["defense-evasion"]
 	},
 	{
+		"attack_technique": "T1622",
+		"display_name": "Debugger Evasion",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion", "discovery"]
+	},
+	{
 		"attack_technique": "T1647",
 		"display_name": "Plist File Modification",
 		"executors": ["manual"],
