@@ -338,7 +338,7 @@
 	{
 		"attack_technique": "T1048.002",
 		"display_name": "Exfiltration Over Alternative Protocol - Exfiltration Over Asymmetric Encrypted Non-C2 Protocol",
-		"executors": ["bash", "command_prompt"],
+		"executors": ["bash", "command_prompt", "sh"],
 		"supported_platforms": ["linux", "macos", "windows"],
 		"phases": ["exfiltration"]
 	},
