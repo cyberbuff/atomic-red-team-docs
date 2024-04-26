@@ -1917,6 +1917,13 @@
 		"phases": ["defense-evasion"]
 	},
 	{
+		"attack_technique": "T1562.012",
+		"display_name": "Impair Defenses: Disable or Modify Linux Audit System",
+		"executors": ["sh"],
+		"supported_platforms": ["linux"],
+		"phases": ["defense-evasion"]
+	},
+	{
 		"attack_technique": "T1563.002",
 		"display_name": "Remote Service Session Hijacking: RDP Hijacking",
 		"executors": ["command_prompt"],
