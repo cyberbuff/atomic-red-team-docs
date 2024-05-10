@@ -119,6 +119,13 @@
 		"phases": ["discovery"]
 	},
 	{
+		"attack_technique": "T1016.002",
+		"display_name": "System Network Configuration Discovery: Wi-Fi Discovery",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["discovery"]
+	},
+	{
 		"attack_technique": "T1018",
 		"display_name": "Remote System Discovery",
 		"executors": ["command_prompt", "powershell", "sh"],
