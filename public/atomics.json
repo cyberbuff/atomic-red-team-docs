@@ -1736,6 +1736,13 @@
 		"phases": ["defense-evasion"]
 	},
 	{
+		"attack_technique": "T1553.006",
+		"display_name": "Subvert Trust Controls: Code Signing Policy Modification",
+		"executors": ["command_prompt"],
+		"supported_platforms": ["windows"],
+		"phases": ["defense-evasion"]
+	},
+	{
 		"attack_technique": "T1555",
 		"display_name": "Credentials from Password Stores",
 		"executors": ["powershell"],
