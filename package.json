@@ -23,7 +23,7 @@
     "@elastic/eui": "^93.5.1",
     "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.4",
-    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
