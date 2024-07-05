@@ -2,7 +2,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 // @ts-ignore
-import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
+import { type DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import React from "react";
 import { Logo } from "./components/logo";
 import { Navigation } from "./components/navigation";

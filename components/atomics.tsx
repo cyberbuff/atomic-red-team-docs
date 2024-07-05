@@ -1,13 +1,13 @@
 import {
 	EuiBadge,
-	EuiBasicTableColumn,
+	type EuiBasicTableColumn,
 	EuiButtonIcon,
 	EuiFlexGroup,
 	EuiFlexItem,
 	EuiIcon,
 	EuiInMemoryTable,
 	EuiLoadingSpinner,
-	EuiSearchBarProps,
+	type EuiSearchBarProps,
 } from "@elastic/eui";
 import {
 	QueryClient,

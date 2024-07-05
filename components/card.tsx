@@ -1,4 +1,4 @@
-import { EuiCard, EuiCardProps, EuiFlexItem } from "@elastic/eui";
+import { EuiCard, type EuiCardProps, EuiFlexItem } from "@elastic/eui";
 import React from "react";
 
 export function Card(
