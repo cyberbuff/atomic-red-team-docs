@@ -2,7 +2,7 @@ name: generate-atomics
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '35 * * * *'
 permissions:
   contents: write
 jobs:
