@@ -1066,7 +1066,7 @@
 	{
 		"attack_technique": "T1202",
 		"display_name": "Indirect Command Execution",
-		"executors": ["command_prompt"],
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["defense-evasion"]
 	},
@@ -1262,8 +1262,8 @@
 	{
 		"attack_technique": "T1489",
 		"display_name": "Service Stop",
-		"executors": ["command_prompt"],
-		"supported_platforms": ["windows"],
+		"executors": ["command_prompt", "sh"],
+		"supported_platforms": ["linux", "windows"],
 		"phases": ["impact"]
 	},
 	{
@@ -1654,8 +1654,8 @@
 	{
 		"attack_technique": "T1552",
 		"display_name": "Unsecured Credentials",
-		"executors": ["sh"],
-		"supported_platforms": ["iaas:aws", "linux", "macos"],
+		"executors": ["powershell", "sh"],
+		"supported_platforms": ["iaas:aws", "linux", "macos", "windows"],
 		"phases": ["credential-access"]
 	},
 	{
@@ -2202,6 +2202,13 @@
 		"executors": ["powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["credential-access"]
+	},
+	{
+		"attack_technique": "T1652",
+		"display_name": "Device Driver Discovery",
+		"executors": ["powershell"],
+		"supported_platforms": ["windows"],
+		"phases": ["discovery"]
 	},
 	{
 		"attack_technique": "T1654",
