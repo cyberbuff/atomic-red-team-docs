@@ -37,7 +37,7 @@
 	{
 		"attack_technique": "T1003.004",
 		"display_name": "OS Credential Dumping: LSA Secrets",
-		"executors": ["command_prompt"],
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["credential-access"]
 	},
