@@ -296,7 +296,7 @@
 	{
 		"attack_technique": "T1037.005",
 		"display_name": "Boot or Logon Initialization Scripts: Startup Items",
-		"executors": ["sh"],
+		"executors": ["bash", "sh"],
 		"supported_platforms": ["macos"],
 		"phases": ["persistence", "privilege-escalation"]
 	},
