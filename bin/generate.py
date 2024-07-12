@@ -48,6 +48,23 @@ def create_atomics_json():
     with open("public/atomics.json", "w") as f:
         f.write(json.dumps(contents, indent=4))
 
+def create_atomic_tests_json():
+    atomic_tests = []
+    techniques = get_techniques_from_mitre()
+
+    for file in glob.glob(os.path.join("atomic-red-team-master/atomics", "T*/T*.yaml")):
+        with open(file, "r") as f:
+            content = yaml.safe_load(f.read())
+            for a in content["atomic_tests"]:
+                a["attack_technique"] = content["attack_technique"]
+                a["phases"] = sorted(techniques[content["attack_technique"]])
+                a["executor"]["elevation_required"] = a["executor"].get("elevation_required", False)
+                del a["description"]
+                atomic_tests.append(a)
+
+    with open("public/atomic_tests.json", "w") as f:
+        f.write(json.dumps(atomic_tests, indent=4))
+
 
 def move_atomics():
     for file in glob.glob(os.path.join("atomic-red-team-master/atomics", "T*/T*.md")):
@@ -58,6 +75,7 @@ def move_atomics():
 if __name__ == "__main__":
     download_atomics()
     create_atomics_json()
+    create_atomic_tests_json()
     move_atomics()
     os.system("pre-commit run --all-files")
     shutil.rmtree("atomic-red-team-master")
