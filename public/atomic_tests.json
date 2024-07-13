@@ -6326,7 +6326,7 @@
 			}
 		],
 		"executor": {
-			"command": "sudo truncate -s 0 #{system_log_path} #size parameter shorthand\nsudo truncate --size=0 #{system_log_path} #size parameter \n",
+			"command": "sudo truncate -s 0 #{system_log_path} #size parameter shorthand\n",
 			"name": "sh",
 			"elevation_required": true
 		},
@@ -6414,7 +6414,7 @@
 			}
 		],
 		"executor": {
-			"command": "sudo find /var/log -name '#{system_log_name1}.*' -exec rm {} \\; #using \"rm\" execution\nsudo find /var/log/ -name \"#{system_log_name2}.*\" -exec shred -u -z -n 3 {} \\; #using \"shred\" execution\nsudo find /var/log/ -name \"#{system_log_name3}.*\" -exec unlink {} \\; #using \"unlink\" execution\n",
+			"command": "sudo find /var/log -name '#{system_log_name1}*' -exec rm {} \\; #using \"rm\" execution\nsudo find /var/log -name \"#{system_log_name2}*\" -exec shred -u -z -n 3 {} \\; #using \"shred\" execution\nsudo find /var/log -name \"#{system_log_name3}*\" -exec unlink {} \\; #using \"unlink\" execution\n",
 			"name": "sh",
 			"elevation_required": true
 		},
