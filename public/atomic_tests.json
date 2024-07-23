@@ -10418,6 +10418,26 @@
 		"phases": ["discovery"]
 	},
 	{
+		"name": "Discover System Language by Windows API Query",
+		"auto_generated_guid": "e39b99e9-ce7f-4b24-9c88-0fbad069e6c6",
+		"supported_platforms": ["windows"],
+		"dependency_executor_name": "powershell",
+		"dependencies": [
+			{
+				"description": "LanguageKeyboardLayout.exe must exist on disk (default location: PathToAtomicsFolder\\..\\ExternalPayloads\\LanguageKeyboardLayout.exe)\n",
+				"prereq_command": "if (Test-Path \"PathToAtomicsFolder\\..\\ExternalPayloads\\LanguageKeyboardLayout.exe\") {exit 0} else {exit 1}\n",
+				"get_prereq_command": "New-Item -Type Directory (split-path \"PathToAtomicsFolder\\..\\ExternalPayloads\\LanguageKeyboardLayout.exe\") -ErrorAction Ignore | Out-Null\nInvoke-WebRequest -Uri \"https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1614.001/bin/LanguageKeyboardLayout.exe\" -OutFile \"PathToAtomicsFolder\\..\\ExternalPayloads\\LanguageKeyboardLayout.exe\"\n"
+			}
+		],
+		"executor": {
+			"name": "command_prompt",
+			"elevation_required": false,
+			"command": "PathToAtomicsFolder\\..\\ExternalPayloads\\LanguageKeyboardLayout.exe"
+		},
+		"attack_technique": "T1614.001",
+		"phases": ["discovery"]
+	},
+	{
 		"name": "Clear Bash history (rm)",
 		"auto_generated_guid": "a934276e-2be5-4a36-93fd-98adbb5bd4fc",
 		"input_arguments": {
