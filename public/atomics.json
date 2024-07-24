@@ -1521,7 +1521,7 @@
 	{
 		"attack_technique": "T1547",
 		"display_name": "Boot or Logon Autostart Execution",
-		"executors": ["command_prompt"],
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["persistence", "privilege-escalation"]
 	},

