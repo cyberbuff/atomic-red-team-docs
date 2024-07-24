@@ -1416,7 +1416,7 @@
 	{
 		"attack_technique": "T1546",
 		"display_name": "Event Triggered Execution",
-		"executors": ["powershell"],
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["persistence", "privilege-escalation"]
 	},

