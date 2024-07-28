@@ -646,7 +646,7 @@
 	{
 		"attack_technique": "T1078.001",
 		"display_name": "Valid Accounts: Default Accounts",
-		"executors": ["command_prompt"],
+		"executors": ["command_prompt", "sh"],
 		"supported_platforms": ["macos", "windows"],
 		"phases": [
 			"defense-evasion",
@@ -1416,7 +1416,7 @@
 	{
 		"attack_technique": "T1546",
 		"display_name": "Event Triggered Execution",
-		"executors": ["powershell"],
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["persistence", "privilege-escalation"]
 	},
@@ -1521,7 +1521,7 @@
 	{
 		"attack_technique": "T1547",
 		"display_name": "Boot or Logon Autostart Execution",
-		"executors": ["command_prompt"],
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["persistence", "privilege-escalation"]
 	},
