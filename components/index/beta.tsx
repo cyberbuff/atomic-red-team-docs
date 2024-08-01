@@ -45,7 +45,7 @@ export function App() {
 						/>
 						<Card
 							icon={<EuiIcon size="xxl" type="fleetApp" />}
-							title="Focussed"
+							title="Focused"
 							description="Security teams don’t want to operate with a “hopes and prayers” attitude towards detection. Atomic tests are mapped to the MITRE ATT&CK matrix, so you always know which techniques you do and don’t detect."
 						/>
 						<Card
