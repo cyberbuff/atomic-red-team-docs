@@ -7799,6 +7799,31 @@
 		"phases": ["execution"]
 	},
 	{
+		"name": "Creating shell using cpan command",
+		"auto_generated_guid": "bcd4c2bc-490b-4f91-bd31-3709fe75bbdf",
+		"supported_platforms": ["linux", "macos"],
+		"executor": {
+			"command": "echo '! exec \"/bin/sh &\"' | PERL_MM_USE_DEFAULT=1  cpan",
+			"name": "sh",
+			"elevation_required": false
+		},
+		"attack_technique": "T1059.004",
+		"phases": ["execution"]
+	},
+	{
+		"name": "Shell Creation using busybox command",
+		"auto_generated_guid": "ab4d04af-68dc-4fee-9c16-6545265b3276",
+		"supported_platforms": ["linux"],
+		"executor": {
+			"command": "busybox sh &",
+			"cleanup_command": null,
+			"name": "sh",
+			"elevation_required": false
+		},
+		"attack_technique": "T1059.004",
+		"phases": ["execution"]
+	},
+	{
 		"name": "Modify HKLM:\\System\\CurrentControlSet\\Control\\Lsa Security Support Provider configuration in registry",
 		"auto_generated_guid": "afdfd7e3-8a0b-409f-85f7-886fdf249c9e",
 		"supported_platforms": ["windows"],
