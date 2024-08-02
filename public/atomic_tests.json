@@ -32839,8 +32839,8 @@
 			}
 		],
 		"executor": {
-			"command": "docker build -t t1613 $PathtoAtomicsFolder/T1613/src/\ndocker run --name t1613_container -d -t t1613\ndocker ps\ndocker stats --no-stream\ndocker inspect $(docker ps -l -q --filter ancestor=t1613)",
-			"cleanup_command": "docker stop t1613_container\ndocker rmi -f t1613_container",
+			"command": "docker build -t t1613 $PathtoAtomicsFolder/T1613/src/\ndocker run --name t1613_container --rm -d -t t1613\ndocker ps\ndocker stats --no-stream\ndocker inspect $(docker ps -l -q --filter ancestor=t1613)",
+			"cleanup_command": "docker stop t1613_container\ndocker rmi -f t1613",
 			"name": "sh",
 			"elevation_required": false
 		},
@@ -32865,8 +32865,8 @@
 			}
 		],
 		"executor": {
-			"command": "podman build -t t1613 $PathtoAtomicsFolder/T1613/src/\npodman run --name t1613_container -d -t t1613\npodman ps\npodman stats --no-stream\npodman inspect $(podman ps -l -q --filter ancestor=t1613)",
-			"cleanup_command": "podman stop t1613_container\npodman rmi -f t1613_container",
+			"command": "podman build -t t1613 $PathtoAtomicsFolder/T1613/src/\npodman run --name t1613_container --rm -d -t t1613\npodman ps\npodman stats --no-stream\npodman inspect $(podman ps -l -q --filter ancestor=t1613)",
+			"cleanup_command": "podman stop t1613_container\npodman rmi -f t1613",
 			"name": "sh",
 			"elevation_required": false
 		},
