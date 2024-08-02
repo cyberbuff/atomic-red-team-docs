@@ -15941,7 +15941,7 @@
 	{
 		"name": "AWS - CloudTrail Logs Impairment Through S3 Lifecycle Rule using Stratus",
 		"auto_generated_guid": "22d89a2f-d475-4895-b2d4-68626d49c029",
-		"supported_platforms": ["linux", "macos"],
+		"supported_platforms": ["linux", "macos", "iaas:aws"],
 		"input_arguments": {
 			"stratus_path": {
 				"description": "Path of stratus binary",
@@ -27045,7 +27045,7 @@
 			}
 		],
 		"executor": {
-			"command": "docker build -t t1612  $PathtoAtomicsFolder/T1612/src/\ndocker run --name t1612_container  -d -t t1612\ndocker exec t1612_container ./test.sh",
+			"command": "docker build -t t1612  $PathtoAtomicsFolder/T1612/src/\ndocker run --name t1612_container --rm -d -t t1612\ndocker exec t1612_container ./test.sh",
 			"cleanup_command": "docker stop t1612_container\ndocker rmi -f t1612",
 			"name": "sh",
 			"elevation_required": false
