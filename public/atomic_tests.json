@@ -14539,7 +14539,7 @@
 			}
 		],
 		"executor": {
-			"command": "docker build -t t1046 /root/AtomicRedTeam/atomics/T1046/src/\ndocker run --name t1046_container  -d -t t1046\ndocker exec t1046_container ./test.sh",
+			"command": "docker build -t t1046 $PathToAtomicsFolder/T1046/src/\ndocker run --name t1046_container --rm -d -t t1046\ndocker exec t1046_container /scan.sh",
 			"cleanup_command": "docker stop t1046_container\ndocker rmi -f t1046",
 			"name": "sh",
 			"elevation_required": false
