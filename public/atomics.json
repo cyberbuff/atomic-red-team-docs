@@ -2059,7 +2059,7 @@
 	{
 		"attack_technique": "T1574.002",
 		"display_name": "Hijack Execution Flow: DLL Side-Loading",
-		"executors": ["command_prompt"],
+		"executors": ["command_prompt", "powershell"],
 		"supported_platforms": ["windows"],
 		"phases": ["defense-evasion", "persistence", "privilege-escalation"]
 	},
