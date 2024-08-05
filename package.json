@@ -20,7 +20,7 @@
 	"homepage": "https://github.com/cyberbuff/atomic-red-team-docs",
 	"dependencies": {
 		"@elastic/datemath": "^5.0.3",
-		"@elastic/eui": "^95.4.0",
+		"@elastic/eui": "^95.5.0",
 		"@emotion/css": "^11.13.0",
 		"@emotion/react": "^11.13.0",
 		"@fortawesome/fontawesome-svg-core": "^6.6.0",
