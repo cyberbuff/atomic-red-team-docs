@@ -35,6 +35,17 @@ module.exports = withNextra({
 	},
 	experimental: { optimisticClientCache: false },
 	async redirects() {
-		return redirects;
+		return redirects.concat([
+			{
+				source: "/atomic-red-team/atomics",
+				destination: "/atomic-red-team/atomics/T1003",
+				permanent: true,
+			},
+			{
+				source: "/atomics/:path*",
+				destination: "/atomic-red-team/atomics/:path*",
+				permanent: true,
+			},
+		]);
 	},
 });
