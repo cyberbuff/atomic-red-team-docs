@@ -14,4 +14,13 @@ module.exports = withNextra({
 		unoptimized: true,
 	},
 	experimental: { optimisticClientCache: false },
+	async redirects() {
+		return [
+			{
+				source: "/defense-evasion/:path",
+				destination: "/atomic-red-team/atomics/:path",
+				permanent: true,
+			},
+		];
+	},
 });
